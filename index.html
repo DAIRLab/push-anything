@@ -4,29 +4,44 @@
     <meta charset="utf-8" />
     <title>Vysics</title>
 
-    <meta content="Vysics combines computer vision and contact-rich physics to perform shape reconstruction under occlusion from short RGBD videos and robot proprioception."
+    <meta
+        content="We approximate global contact-implicit MPC by sampling global end effector locations, computing their local CI-MPC plans in parallel, and switching between contact-free and contact-rich modes."
         name="description" />
-    <meta content="Vysics combines vision and physics for shape reconstruction." property="og:title" />
-    <meta content="Vysics combines computer vision and contact-rich physics to perform shape reconstruction under occlusion from short RGBD videos and robot proprioception."
+    <meta
+        content="We inject global insights into local contact-implicit control."
+        property="og:title" />
+    <meta
+        content="We approximate global contact-implicit MPC by sampling global end effector locations, computing their local CI-MPC plans in parallel, and switching between contact-free and contact-rich modes."
         name="description"
         property="og:description" />
-    <meta content="https://vysics-vision-and-physics.github.io/static/images/meta.png" property="og:image" />
-    <meta content="Vysics combines vision and physics for shape reconstruction." property="twitter:title" />
-    <meta content="Vysics combines computer vision and contact-rich physics to perform shape reconstruction under occlusion from short RGBD videos and robot proprioception."
+    <meta
+        content="https://approximating-global-ci-mpc.github.io/static/images/meta.png"
+        property="og:image" />
+    <meta
+        content="We inject global insights into local contact-implicit control."
+        property="twitter:title" />
+    <meta
+        content="We approximate global contact-implicit MPC by sampling global end effector locations, computing their local CI-MPC plans in parallel, and switching between contact-free and contact-rich modes."
         name="description"
         property="twitter:description" />
-    <meta content="https://vysics-vision-and-physics.github.io/static/images/meta.png" property="twitter:image" />
+    <meta
+        content="https://approximating-global-ci-mpc.github.io/static/images/meta.png"
+        property="twitter:image" />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1" />
 
 
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect"
         crossorigin="anonymous" />
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
         type="text/javascript"></script>
-    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
     <script type="text/javascript">WebFont.load({google: {families: [
         "Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic",
         "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic",
@@ -63,26 +78,23 @@
     <div class="section">
         <div class="container">
             <br>
-            <h1 class="title">Vysics</h1>
-            <h1 class="subheader">Object Reconstruction Under Occlusion by <br> 
-                Fusing Vision and Contact-Rich Physics</h1>
+            <h1 class="title">Approximating Global Contact-Implicit MPC via
+                Sampling and Local Complementarity</h1>
+            <!-- <h1 class="subheader"> via Sampling and Local Complementarity</h1> -->
 
             <div class="publication-authors" style="font-size:1.25rem;">
+                <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=jSHp1F0AAAAJ&hl=en"
+                        target="_blank">Sharanya Venkatesh</a><sup>*1</sup>,</span>
                 <span class="author-block">
                     <a href="http://www.bianchini-love.com/bibit"
                         target="_blank">Bibit Bianchini</a><sup>*1</sup>,</span>
                 <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=70CbUXwAAAAJ&hl=en"
-                        target="_blank">Minghan Zhu</a><sup>*1</sup>,</span>
+                    <a href="https://scholar.google.com/citations?user=dGoS2OAAAAAJ&hl=en"
+                        target="_blank">Alp Aydinoglu</a><sup>2</sup>,</span>
                 <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=hXb_RHoAAAAJ&hl=en"
-                        target="_blank">Mengti Sun</a><sup>2</sup>,</span>
-                <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=_6AHV9QAAAAJ&hl=en"
-                        target="_blank">Bowen Jiang</a><sup>1</sup>,</span>
-                <span class="author-block">
-                    <a href="https://www.cis.upenn.edu/~cjtaylor/"
-                        target="_blank">Camillo J. Taylor</a><sup>1</sup>,</span>
+                    <a href="https://scholar.google.com/citations?user=DHjSnjoAAAAJ&hl=en"
+                        target="_blank">William Yang</a><sup>3</sup>,</span>
                 <span class="author-block">
                     <a href="https://www.grasp.upenn.edu/people/michael-posa/"
                         target="_blank">Michael Posa</a><sup>1</sup></span>
@@ -97,19 +109,24 @@
                     1</sup>University of Pennsylvania </span>
 
                 <span class="author-block" style="display:block"><sup>
-                    2</sup>Amazon</span>
+                    2</sup>Boston Dynamics</span>
 
-                <span class="author-block"
-                    style="display:block; line-height:60px;">Robotics: Science
-                    and Systems (RSS), 2025</span>
+                <span class="author-block" style="display:block"><sup>
+                    3</sup>Amazon Robotics</span>
+
+                <!-- <span class="author-block"
+                    style="display:block; line-height:60px;">Placeholder for
+                    venue, YYYY</span> -->
             </div>
             <br>
 
             <div class="link-labels base-row">
+                <!-- TODO: Update paper link -->
                 <div class="base-col icon-col">
-                    <a href="https://arxiv.org/abs/2504.18719" target="_blank"
-                        class="link-block">
-                    <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
+                    <!-- <a href="https://arxiv.org/abs/2504.18719" target="_blank"
+                        class="link-block"> -->
+                    <img
+                        src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
                         alt="paper"
                         sizes="(max-width: 479px) 12vw, (max-width: 767px) 7vw, (max-width: 991px) 41.8515625px, 56.6953125px"
                         srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png 500w, https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png 672w"
@@ -120,15 +137,8 @@
                 <div class="base-col icon-col">
                     <!-- <a href="https://github.com/ebianchi/bundlenets/tree/structural-changes"
                         target="_blank" > -->
-                    <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
-                        alt="code" class="icon-img github-img-icon" />
-                    </a>
-                </div>
-                <!-- TODO: Update dataset link -->
-                <div class="base-col icon-col">
-                    <!-- <a href="https://github.com/ebianchi/bundlenets/tree/structural-changes"
-                        target="_blank" > -->
-                    <img src="./static/logos/dataset_icon.png"
+                    <img
+                        src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
                         alt="code" class="icon-img github-img-icon" />
                     </a>
                 </div>
@@ -143,13 +153,10 @@
             </div>
             <div class="link-labels base-row">
                 <div class="base-col icon-col">
-                    <strong class="link-labels-text">Paper</strong>
+                    <strong class="link-labels-text">Paper<br>(coming soon)</strong>
                 </div>
                 <div class="base-col icon-col">
                     <strong class="link-labels-text">Code<br>(coming soon)</strong>
-                </div>
-                <div class="base-col icon-col">
-                    <strong class="link-labels-text">Dataset<br>(coming soon)</strong>
                 </div>
                 <div class="base-col icon-col">
                     <strong class="link-labels-text">Video<br>(coming soon)</strong>
@@ -159,20 +166,20 @@
             <br>
 
             <!-- Main video -->
-            <div class="base-row add-top-padding">
+            <!-- <div class="base-row add-top-padding">
                 <video id="main-video" autobuffer muted autoplay loop>
                     <source id="mp4"
                         src="./static/images/vysics_intro_spatial_small.mp4"
                         type="video/mp4">
                 </video>
-            </div>
+            </div> -->
 
             <h1 class="tldr">
                 <b>TL;DR</b>:
-                <u>Vysics</u> is a vision-and-physics framework for a robot to
-                build an expressive geometry and dynamics model of a single
-                rigid body, using a seconds-long RGBD video and the robot's
-                proprioception.
+                We approximate global contact-implicit MPC by sampling global 
+                end effector locations, computing their local CI-MPC plans in
+                parallel, and switching between contact-free and contact-rich
+                modes.
             </h1>
 
             <br>
@@ -181,39 +188,36 @@
             <div class="base-row add-top-padding">
                 <h1 id="abstract">Abstract</h1>
                 <p class="paragraph">
-                    We introduce <b>Vysics</b>, a vision-and-physics framework
-                    for a robot to build an expressive geometry and dynamics
-                    model of a single rigid body, using a seconds-long RGBD
-                    video and the robot's proprioception. While the computer
-                    vision community has built powerful visual 3D perception
-                    algorithms, cluttered environments with heavy occlusions can
-                    limit the visibility of objects of interest. However,
-                    observed motion of partially occluded objects can imply
-                    physical interactions took place, such as contact with a
-                    robot or the environment. These inferred contacts can
-                    supplement the visible geometry with “physible geometry,”
-                    which best explains the observed object motion through
-                    physics. Vysics uses a vision-based tracking and
-                    reconstruction method, BundleSDF, to estimate the trajectory
-                    and the visible geometry from an RGBD video, and an
-                    odometry-based model learning method, Physics Learning
-                    Library (PLL), to infer the “physible” geometry from the
-                    trajectory through implicit contact dynamics optimization.
-                    The visible and “physible” geometries jointly factor into
-                    optimizing a signed distance function (SDF) to represent the
-                    object shape. Vysics does not require pretraining, nor
-                    tactile or force sensors. Compared with vision-only methods,
-                    Vysics yields object models with higher geometric accuracy
-                    and better dynamics prediction in experiments where the
-                    object interacts with the robot and the environment under
-                    heavy occlusion.
+                    To achieve general-purpose dexterous manipulation, robots
+                    must rapidly devise and execute contact-rich behaviors.
+                    Existing model-based controllers are incapable of globally
+                    optimizing in real-time over the exponential number of
+                    possible contact sequences. Instead, recent progress in
+                    contact-implicit control has leveraged simpler models that,
+                    while still hybrid, make local approximations. However, the
+                    use of local models inherently limits the controller to only
+                    exploit nearby interactions, potentially requiring
+                    intervention to richly explore the space of possible
+                    contacts.  We present a novel approach which leverages the
+                    strengths of local complementarity-based control in
+                    combination with low-dimensional, but global, sampling of
+                    possible end-effector locations. Our key insight is to
+                    consider a contact-free stage preceding a contact-rich stage
+                    at every control loop. Our algorithm, in parallel, samples
+                    end effector locations to which the contact-free stage can
+                    move the robot, then considers the cost predicted by
+                    contact-rich MPC local to each sampled location. The result
+                    is a globally-informed, contact-implicit controller capable
+                    of real-time dexterous manipulation. We demonstrate our
+                    controller on precise, non-prehensile manipulation of
+                    non-convex objects using a Franka Panda arm.
                 </p>
             </div>
 
             <br>
 
             <!-- Architecture -->
-            <div class="base-row add-top-padding">
+            <!-- <div class="base-row add-top-padding">
                 <h1 id="abstract">Architecture</h1>
                 <video id="arch-video" controls autoplay muted loop playsinline
                     height="100%">
@@ -225,8 +229,6 @@
                     The figure illustrates the overall design of <b>Vysics</b>
                     from input RGBD videos and robot states (left) to URDF
                     output (right). Its core components are
-                    <!-- TODO:  link to BundleSDF? -->
-                    <!-- <a href="https://bundlesdf.github.io/" target="_blank">BundleSDF</a> -->
                     BundleSDF for vision-based tracking and shape
                     reconstruction, and PLL for physics-inspired dynamics
                     learning. Beyond the insights that led to this systems
@@ -236,12 +238,12 @@
                     model, featuring geometry informed by both vision and
                     contact.
                 </p>
-            </div>
+            </div> -->
 
             <br>
 
             <!-- Geometry results -->
-            <div class="base-row add-top-padding">
+            <!-- <div class="base-row add-top-padding">
                 <h1 id="abstract">Geometry Results</h1>
                 
                 <nav>
@@ -342,14 +344,6 @@
                     beyond the visible regions, towards contacts PLL infers from
                     the trajectory.  The end effector is highlighted in yellow.
                     <br><br>
-                    <!-- These videos occasionally show imperfections in the pose
-                    estimates from BundleSDF.  Vysics is robust to these amounts
-                    of pose jittering since its contact estimates from PLL
-                    utilize a smooth, implicit-based loss designed with the
-                    multi-modal nature of contact in mind.  However Vysics
-                    cannot recover from large pose errors, since this prevents
-                    consistent incorporation of temporally estimated contacts
-                    into a single object model. -->
                 </p>
 
                 <div class="columns is-centered">
@@ -473,12 +467,12 @@
                     Vysics (which fuses vision and physics) and BundleSDF (vision-only).  
                 </p>
 
-            </div>
+            </div> -->
 
             <br>
 
             <!-- Geometry comparison to data-driven 3d generative models -->
-            <div class="base-row add-top-padding">
+            <!-- <div class="base-row add-top-padding">
                 <h1>Geometry Comparison to Data-Driven Shape Completion Models</h1>
                 <p class="paragraph">
                     While the objects are heavily occluded in the camera view,
@@ -586,97 +580,58 @@
                       </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
 
             <br>
 
-            <!-- Dynamics predictions -->
+            <!-- Uncut jack videos -->
             <div class="base-row add-top-padding">
-                <h1 id="abstract">Dynamics Predictions</h1>
+                <h1 id="abstract">Uncut SE(3) Manipulation Videos</h1>
+                <h2>Tight tolerances:  2cm, 0.1rad (5.7 degrees)</h2>
                 <nav>
                     <div class="carousel-slider-wrapper">
                         <div class = "carousel-slider">
 
                             <div class="video-container">
+                                <h2>21 consecutive SE(3) goals</h2>
                                 <video autoplay controls muted loop playsinline
                                     height="100%">
                                     <source
-                                        src="./static/images/carousel_dynamics/dynamics_bakingbox_3_small.mp4"
+                                        src="./static/images/carousel_jack/01_29_25_log_33_10x-37mB.mp4"
                                         type="video/mp4">
                                 </video>
                             </div>
 
                             <div class="video-container">
+                                <h2>16 consecutive SE(3) goals</h2>
                                 <video autoplay controls muted loop playsinline
                                     height="100%">
                                     <source
-                                        src="./static/images/carousel_dynamics/dynamics_milk_3_small.mp4"
+                                        src="./static/images/carousel_jack/01_29_25_log_31_10x-36mB.mp4"
                                         type="video/mp4">
                                 </video>
                             </div>
 
                             <div class="video-container">
+                                <h2>15 consecutive SE(3) goals</h2>
                                 <video autoplay controls muted loop playsinline
                                     height="100%">
                                     <source
-                                        src="./static/images/carousel_dynamics/dynamics_oatly_11_small.mp4"
+                                        src="./static/images/carousel_jack/01_29_25_log_32_10x-30mB.mp4"
                                         type="video/mp4">
                                 </video>
                             </div>
 
                             <div class="video-container">
+                                <h2>15 consecutive SE(3) goals</h2>
                                 <video autoplay controls muted loop playsinline
                                     height="100%">
                                     <source
-                                        src="./static/images/carousel_dynamics/dynamics_styrofoam_1_small.mp4"
+                                        src="./static/images/carousel_jack/01_29_25_log_7_10x-20mB.mp4"
                                         type="video/mp4">
                                 </video>
                             </div>
 
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_dynamics/dynamics_egg_6_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_dynamics/dynamics_bottle_1_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_dynamics/dynamics_toblerone_11_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_dynamics/dynamics_milk_8_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_dynamics/dynamics_oatly_6_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
                         </div>
                         <button class="carousel-button left" type="button">&lt;</button>
                         <button class="carousel-button right" type="button">&gt;</button>
@@ -684,36 +639,64 @@
                 </nav>
 
                 <p class="paragraph">
-                    Because Vysics uses physics reasoning to inform the
-                    recovered geometry, it enables accurate dynamics predictions
-                    when predicting the original trajectory.  To do this, we
-                    simulate the recorded robot commands in a simulator with the
-                    learned object model, then we compare the resulting object
-                    trajectory to the BundleSDF trajectory estimate.  The videos
-                    above show the simulation results of Vysics models compared
-                    to vision-only geometry (from BundleSDF), physics-only
-                    geometry (from PLL), and the ground truth geometry (from a
-                    3D scanner).
+                    For our 3D jack example, we aggregate time-to-goal
+                    statistics across 4 continuous experiments containing 21,
+                    16, 15, and 15 consecutive SE(3) goals.  The above uncut
+                    videos depict these full-length experiments.
                 </p>
+            </div>
 
-                <img id="dynamics-img" src="./static/images/dynamics_cdf.png" />
+            <br>
+
+            <!-- Uncut push-T videos -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Uncut SE(2) Manipulation Videos</h1>
+                <h2>Tight tolerances:  2cm, 0.1rad (5.7 degrees)</h2>
+                <nav>
+                    <div class="carousel-slider-wrapper">
+                        <div class = "carousel-slider">
+
+                            <div class="video-container">
+                                <h2>56 consecutive SE(2) goals</h2>
+                                <video autoplay controls muted loop playsinline
+                                    height="100%">
+                                    <source
+                                        src="./static/images/carousel_t/03_19_25_log_29_5x-60mB.mp4"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+
+                            <div class="video-container">
+                                <h2>20 consecutive SE(2) goals</h2>
+                                <video autoplay controls muted loop playsinline
+                                    height="100%">
+                                    <source
+                                        src="./static/images/carousel_t/03_19_25_log_24_5x-25mB.mp4"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+
+                            <div class="video-container">
+                                <h2>10 consecutive SE(2) goals</h2>
+                                <video autoplay controls muted loop playsinline
+                                    height="100%">
+                                    <source
+                                        src="./static/images/carousel_t/03_19_25_log_18_5x-10mB.mp4"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+
+                        </div>
+                        <button class="carousel-button left" type="button">&lt;</button>
+                        <button class="carousel-button right" type="button">&gt;</button>
+                    </div>
+                </nav>
 
                 <p class="paragraph">
-                    The plot above shows the average position and rotation
-                    errors when predicting the entire length of the original
-                    trajectory as an open-loop rollout, averaged for every
-                    example and result in the dataset. The trajectories range in
-                    length from 3 to 18 seconds.  Even the ground truth geometry 
-                    baseline is imperfect, due to inaccurate modeling
-                    assumptions such as object rigidity and the divergent nature
-                    of the dynamics in many of our robot interactions.  Vysics
-                    and PLL perform closely to this baseline.  While most of
-                    the dynamics performance by PLL is retained in Vysics, it is
-                    unsurprising to see a slight performance drop, given PLL
-                    optimizes only for physics accuracy while Vysics balances
-                    with visual objectives.  The vision-only baseline is the
-                    least performant in both position and orientation rollout
-                    accuracy.
+                    For our planar push-T example, we aggregate time-to-goal
+                    statistics across 4 continuous experiments containing 56,
+                    20, 20, and 10 consecutive SE(2) goals.  The above uncut
+                    videos depict these full-length experiments.
                 </p>
             </div>
 
@@ -724,9 +707,7 @@
                 <h1 id="abstract">Acknowledgments</h1>
 
                 <p class="paragraph">
-                    We thank our anonymous reviewers, who provided thorough and
-                    fair feedback that improved the quality of our paper.  This
-                    work was supported by a National Defense Science and
+                    This work was supported by a National Defense Science and
                     Engineering Graduate (NDSEG) Fellowship, an NSF CAREER Award
                     under Grant No. FRR-2238480, and the RAI Institute.
                 </p>
@@ -738,13 +719,11 @@
             <div class="citation add-top-padding">
                 <h1 id="abstract"> Citation </h1>
                 <p> If you find this work useful, please consider citing: (bibtex) </p>
-                <pre id="codecell0">@inproceedings{bianchini2025vysics,
-&nbsp;title={Vysics: Object Reconstruction Under Occlusion by Fusing Vision and Contact-Rich Physics},
-&nbsp;author={Bibit Bianchini and Minghan Zhu and Mengti Sun and Bowen Jiang and Camillo J. Taylor and Michael Posa},
-&nbsp;year={2025},
-&nbsp;month={june}, <!-- &nbsp;arxiv={TODO}, -->
-&nbsp;booktitle={Robotics: Science and Systems (RSS)},
-&nbsp;website={https://vysics-vision-and-physics.github.io/}, <!-- &nbsp;url={https://arxiv.org/abs/TODO} -->
+                <pre id="codecell0">@article{venkatesh2025approximating,
+&nbsp;title={Approximating Global Contact-Implicit MPC via Sampling and Local Complementarity},
+&nbsp;author={Sharanya Venkatesh and Bibit Bianchini and Alp Aydinoglu and William Yang and Michael Posa},
+&nbsp;year={2025}, <!-- &nbsp;journal={arXiv preprint arXiv:TBD}, -->
+&nbsp;website={https://approximating-global-ci-mpc.github.io/}
 }
 </pre>
             </div>
@@ -756,7 +735,7 @@
     		
     <p style="text-align:left;font-size:small;padding: 1%;">
         Source code for this page was taken from
-        <a href="https://scenecomplete.github.io">SceneComplete's website</a>.
+        <a href="https://vysics-vision-and-physics.github.io">Vysics's website</a>, which is based on <a href="https://scenecomplete.github.io">SceneComplete's website</a>.
     </p>
 
 
