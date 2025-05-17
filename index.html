@@ -164,22 +164,25 @@
             </div>
 
             <br>
+            <br>
 
             <!-- Main video -->
-            <!-- <div class="base-row add-top-padding">
-                <video id="main-video" autobuffer muted autoplay loop>
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Overview Video</h1>
+                <video autobuffer controls muted autoplay loop
+                    style="border: 1px solid #000000; border-radius: 15px;">
                     <source id="mp4"
-                        src="./static/images/vysics_intro_spatial_small.mp4"
+                        src="./static/images/WebsiteControls_small.mp4"
                         type="video/mp4">
                 </video>
-            </div> -->
+            </div>
 
             <h1 class="tldr">
                 <b>TL;DR</b>:
-                We approximate global contact-implicit MPC by sampling global 
-                end effector locations, computing their local CI-MPC plans in
-                parallel, and switching between contact-free and contact-rich
-                modes.
+                We approximate global contact-implicit MPC (CI-MPC) by sampling
+                global end effector locations, computing their local CI-MPC
+                plans in parallel, and switching between contact-free and
+                contact-rich modes.
             </h1>
 
             <br>
@@ -216,377 +219,20 @@
 
             <br>
 
-            <!-- Architecture -->
-            <!-- <div class="base-row add-top-padding">
-                <h1 id="abstract">Architecture</h1>
-                <video id="arch-video" controls autoplay muted loop playsinline
-                    height="100%">
-                    <source
-                        src="./static/images/vysics_architecture_animation.mp4"
-                        type="video/mp4">
-                </video>
-                <p class="paragraph">
-                    The figure illustrates the overall design of <b>Vysics</b>
-                    from input RGBD videos and robot states (left) to URDF
-                    output (right). Its core components are
-                    BundleSDF for vision-based tracking and shape
-                    reconstruction, and PLL for physics-inspired dynamics
-                    learning. Beyond the insights that led to this systems
-                    integration, our main contribution lies in how Vysics
-                    incorporates these two powerful tools together such that
-                    they supervise each other and output an object dynamics
-                    model, featuring geometry informed by both vision and
-                    contact.
-                </p>
-            </div> -->
-
-            <br>
-
-            <!-- Geometry results -->
-            <!-- <div class="base-row add-top-padding">
-                <h1 id="abstract">Geometry Results</h1>
-                
-                <nav>
-                    <div class="carousel-slider-wrapper">
-                        <div class = "carousel-slider">
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_overlay/overlay_bakingbox_3_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_overlay/overlay_milk_3_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_overlay/overlay_oatly_11_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_overlay/overlay_styrofoam_1_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_overlay/overlay_egg_6_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_overlay/overlay_bottle_1_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_overlay/overlay_toblerone_11_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_overlay/overlay_milk_8_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_overlay/overlay_oatly_6_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                        <button class="carousel-button left" type="button">&lt;</button>
-                        <button class="carousel-button right" type="button">&gt;</button>
-                    </div>
-                </nav>
-
-                <p class="paragraph" style="margin-top: -40px;">
-                    Vysics trains on a seconds-long RGBD video and the robot's
-                    proprioception.  Above, see the learned geometries overlaid on the input
-                    video with the BundleSDF tracked pose.  This shows
-                    how the physics-based reasoning helps to extend the geometry
-                    beyond the visible regions, towards contacts PLL infers from
-                    the trajectory.  The end effector is highlighted in yellow.
-                    <br><br>
-                </p>
-
-                <div class="columns is-centered">
-                    <div class="column">
-                        <img id="geometry-img"
-                            src="./static/images/geometry_chamfer.png" />
-                    </div>
-                    <div class="column">
-                        <img id="geometry-img"
-                            src="./static/images/geometry_iou.png" />
-                    </div>
-                </div>
-
-                <p class="paragraph">
-                    Due to severe occlusion in the RGBD videos, vision-based
-                    reconstruction yields significant errors.  Our method recovers 
-                    the occluded geometry through
-                    physics-based reasoning over the observed trajectories.
-                    The plots above show substantial and consistent improvements
-                    in terms of both the surface-based metric (chamfer distance)
-                    and the volume-based metric (IoU).
-                </p>
-                
-                <nav>
-                    <div class="carousel-slider-wrapper">
-                        <div class = "carousel-slider">
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_geometry/geometry_bakingbox_3_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_geometry/geometry_milk_3_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_geometry/geometry_oatly_11_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_geometry/geometry_styrofoam_1_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_geometry/geometry_egg_6_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_geometry/geometry_bottle_1_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_geometry/geometry_toblerone_11_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_geometry/geometry_milk_8_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_geometry/geometry_oatly_6_small.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                        <button class="carousel-button left" type="button">&lt;</button>
-                        <button class="carousel-button right" type="button">&gt;</button>
-                    </div>
-                </nav>
-                <div class="columns is-centered" style="margin-top: -60px;">
-                    <div class="column is-1">
-                        <img src="./static/images/error_bar_text.png" alt="errorbar" style="display: block; margin: 0 auto; width: 60%; min-width: 250px; margin-bottom: 10px;">
-                    </div>
-                </div>
-                <p class="paragraph">
-                    Each example above shows the input video,
-                    a photo of the object, and the reconstructed geometry from
-                    Vysics (which fuses vision and physics) and BundleSDF (vision-only).  
-                </p>
-
-            </div> -->
-
-            <br>
-
-            <!-- Geometry comparison to data-driven 3d generative models -->
-            <!-- <div class="base-row add-top-padding">
-                <h1>Geometry Comparison to Data-Driven Shape Completion Models</h1>
-                <p class="paragraph">
-                    While the objects are heavily occluded in the camera view,
-                    one may wonder if shape completion models, which learn prior
-                    knowledge of the shape of typical objects from a large
-                    amount of data, may recover the occluded geometry.  We tested 
-                    several data-driven shape completion models:  <a
-                    href="https://ieeexplore.ieee.org/document/10160350">
-                    3DSGrasp</a> for point cloud completion;
-                    <a href="https://yushuang-wu.github.io/IPoD/">IPoD</a> for
-                    single-object completion from an RGBD image; and <a
-                    href="https://herb-wright.github.io/v-prism/">V-PRISM</a>
-                    and <a href="https://sh8.io/#/oct_mae">OctMAE</a> for
-                    multi-object scene completion from an RGBD image.  See the
-                    below table for results, showing Vysics outperforms all
-                    other baselines for each object in our dataset and overall.
-                </p>
-
-                <h2>Table 1:  Chamfer Distance (cm)</h2>
-                <table>
-                    <thead>
-                      <tr>
-                        <th>Method</th>
-                        <th>bakingbox</th>
-                        <th>bottle</th>
-                        <th>egg</th>
-                        <th>milk</th>
-                        <th>oatly</th>
-                        <th>styrofoam</th>
-                        <th>toblerone</th>
-                        <th>all</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><a href="https://bundlesdf.github.io">BundleSDF
-                            </a></td>
-                        <td>3.84</td>
-                        <td>2.65</td>
-                        <td>3.70</td>
-                        <td>3.17</td>
-                        <td>2.45</td>
-                        <td>2.55</td>
-                        <td>2.44</td>
-                        <td>2.98</td>
-                      </tr>
-                      <tr>
-                        <td><a
-                            href="https://ieeexplore.ieee.org/document/10160350">
-                            3DSGrasp</a></td>
-                        <td>3.83</td>
-                        <td>2.80</td>
-                        <td>3.78</td>
-                        <td>3.15</td>
-                        <td>2.51</td>
-                        <td>2.66</td>
-                        <td>2.77</td>
-                        <td>3.06</td>
-                      </tr>
-                      <tr>
-                        <td><a href="https://yushuang-wu.github.io/IPoD/">IPoD
-                            </a></td>
-                        <td>3.25</td>
-                        <td>1.80</td>
-                        <td>2.16</td>
-                        <td>2.37</td>
-                        <td>2.73</td>
-                        <td>1.93</td>
-                        <td>1.97</td>
-                        <td>2.47</td>
-                      </tr>
-                      <tr>
-                        <td><a href="https://herb-wright.github.io/v-prism/">
-                            V-PRISM</a></td>
-                        <td>3.52</td>
-                        <td>2.47</td>
-                        <td>2.31</td>
-                        <td>3.33</td>
-                        <td>2.30</td>
-                        <td>2.54</td>
-                        <td>2.48</td>
-                        <td>2.80</td>
-                      </tr>
-                      <tr>
-                        <td><a href="https://sh8.io/#/oct_mae">OctMAE</a></td>
-                        <td>3.11</td>
-                        <td>2.22</td>
-                        <td>1.52</td>
-                        <td>2.93</td>
-                        <td>2.13</td>
-                        <td>2.00</td>
-                        <td>2.36</td>
-                        <td>2.45</td>
-                      </tr>
-                      <tr>
-                        <td>Vysics (ours)</td>
-                        <td>1.83</td>
-                        <td>1.36</td>
-                        <td>1.05</td>
-                        <td>1.53</td>
-                        <td>1.25</td>
-                        <td>1.45</td>
-                        <td>1.02</td>
-                        <td>1.45</td>
-                      </tr>
-                    </tbody>
-                </table>
-            </div> -->
-
-            <br>
-
             <!-- Uncut jack videos -->
             <div class="base-row add-top-padding">
                 <h1 id="abstract">Uncut SE(3) Manipulation Videos</h1>
+                <h2>Loose tolerances:  5cm, 0.4rad (22.9 degrees)</h2>
+                <div class="video-container">
+                    <h2>73 consecutive SE(3) goals</h2>
+                    <video autoplay controls muted loop playsinline
+                        height="100%">
+                        <source
+                            src="./static/images/01_14_25_log_29_10x-80mB.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+
                 <h2>Tight tolerances:  2cm, 0.1rad (5.7 degrees)</h2>
                 <nav>
                     <div class="carousel-slider-wrapper">
@@ -707,6 +353,206 @@
                     statistics across 4 continuous experiments containing 56,
                     20, 20, and 10 consecutive SE(2) goals.  The above uncut
                     videos depict these full-length experiments.
+                </p>
+            </div>
+
+            <br>
+
+            <!-- Limitations of Local Models -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Limitations of Local Models</h1>
+                <p class="paragraph">
+                    Many CI-MPC methods use local models to approximate the
+                    dynamics in a real-time-capable manner.  One example is
+                    <a href="https://arxiv.org/abs/2304.11259">Consensus
+                    Complementarity Control (C3)</a>, which represents the
+                    multi-contact dynamics as a linear complementarity system
+                    (LCS).  An LCS captures the hybrid aspect of contact-rich
+                    dynamics but is fundamentally local.
+                </p>
+                <h2>LCS Views of Object Geometry</h2>
+                <img id="full-img" src="./static/images/lcs_samples.png" />
+                <br>
+                <br>
+                <p class="paragraph">
+                    Loosely speaking, the LCS approximates object geometry as a
+                    set of hyperplanes coincident with and tangent to their
+                    witness points with respect to other geometries of interest.
+                    In the above example, a spherical end effector approaches a
+                    spherical object on a flat surface.  The ground-object
+                    hyperplane is in red, while the robot-object hyperplane is
+                    in blue.  A local controller built on LCS dynamics like C3
+                    computes a contact-rich trajectory from a given initial
+                    configuration, which defines the LCS.  With different
+                    initial configurations, the LCS is defined by different
+                    hyperplanes, and thus yields different contact-rich
+                    trajectories with different associated MPC costs.  In the
+                    above example, four initial configurations of the end
+                    effector with respect to the object are shown.  The
+                    rightmost LCS approximation allows the robot to most
+                    effectively foresee progressing the object toward the goal,
+                    and thus it has the lowest MPC cost.
+                </p>
+                <img id="med-img" src="./static/images/jack_lcs_samples.png" />
+                <br>
+                <br>
+                <p class="paragraph">
+                    These LCS approimations are well-defined even for more
+                    complicated geometries, only requiring witness points
+                    between the object and other collision geometries.  Above,
+                    the object-robot hyperplanes for three different end
+                    effector locations are shown, with sample costs on the
+                    right.
+                </p>
+            </div>
+
+            <br>
+
+            <!-- Algorithm -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Our Algorithm:  Inject Global Insights into
+                    Local Contact-Implicit Control</h1>
+                <img id="full-img" src="./static/images/algorithm.png" />
+                <br>
+                <br>
+                <p class="paragraph">
+                    In this work, we extend the capabilities of
+                    <a href="https://arxiv.org/abs/2304.11259">C3</a> by
+                    injecting global insights into the local problem.  While
+                    using an LCS model enables C3's real-time performance, its
+                    locality (described above) is problematic and motivates our
+                    approach.  The key is to split the problem into an initial
+                    contact-free mode and a subsequent contact-rich mode.  The
+                    contact-free mode explores globally, setting up the
+                    contact-rich mode in a region tractably handled by C3.  To
+                    approximate the new bilevel optimization problem in
+                    real-time, we sample low-dimensional end effector locations
+                    at the mode switch.  In closed-loop, our controller uses
+                    progress and cost metrics to autonomously switch between
+                    modes.
+                </p>
+            </div>
+
+            <br>
+
+            <!-- Control Architecture -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Implementation</h1>
+                <img id="med-img" src="./static/images/architecture.png" />
+                <br>
+                <br>
+                <p class="paragraph">
+                    Our controller is implemented in C++ within the
+                    <a href="https://drake.mit.edu">Drake systems framework</a>.
+                    In parallel, we consider 3 end effector samples (including
+                    the current end effector location) at every control loop.
+                    We connect our controller to an operational space controller
+                    (OSC), which tracks task-space commands specified by our
+                    policy at 8-12 Hz, via joint-level control at 1 KHz.  We
+                    additionally integrate with Franka hardware and state
+                    estimators as in the control diagram above.  Object state
+                    estimation uses
+                    <a href="https://nvlabs.github.io/FoundationPose/">
+                    FoundationPose</a> running at 30Hz with a D455 RealSense
+                    RGBD camera.  Our setup uses two computers:  a computer with
+                    a 13th generation Intel Core i9-13900KF with 32 threads (for
+                    our sampling-based CI-MPC) and an NVIDIA GeForce RTX 4090
+                    GPU (for FoundationPose), and an Intel i7-8700K processor
+                    (for our OSC and robot drivers) equipped with a real-time
+                    kernel for communicating with the Franka.  Inter-computer
+                    communication occurs over
+                    <a href="https://lcm-proj.github.io/lcm/">LCM</a>.
+                </p>
+            </div>
+
+            <br>
+
+            <!-- Numerical Results -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Numerical Results</h1>
+                <table>
+                    <tr>
+                        <th rowspan="2">Mean &plusmn; &sigma;<br>[Min, Max]</th>
+                        <th colspan="2">Time to Goal (s) within Pose Tolerances
+                            </th>
+                    </tr>
+                    <tr>
+                        <th>Tight:  2cm, 0.1 rad</th>
+                        <th>Loose:  5cm, 0.4 rad</th>
+                    </tr>
+                    <tbody>
+                      <tr>
+                        <td>Hardware SE(3) Jack (Ours)<br>67 trials</td>
+                        <td>109.20 &plusmn; 64.24<br>[17.40, 292.07]</td>
+                        <td>84.86 &plusmn; 60.54<br>[5.20, 257.74]</td>
+                      </tr>
+                      <tr>
+                        <td>Simulation SE(3) Jack (Ours)<br>26 trials</td>
+                        <td>49.31 &plusmn; 30.35<br>[9.71, 124.70]</td>
+                        <td>33.84 &plusmn; 26.39<br>[7.97, 97.82]</td>
+                      </tr>
+                      <tr>
+                        <td>Simulation SE(3) Jack (MJPC)<br>34 trials</td>
+                        <td>107.91 &plusmn; 112.38<br>[3.30, 567.69]</td>
+                        <td>68.00 &plusmn; 83.50<br>[1.51, 343.79]</td>
+                      </tr>
+                      <tr>
+                        <td>Hardware SE(2) Push-T (Ours)<br>106 trials</td>
+                        <td>30.45 &plusmn; 13.11<br>[7.50, 79.43]</td>
+                        <td>17.43 &plusmn; 7.59<br>[3.86, 42.00]</td>
+                      </tr>
+                    </tbody>
+                </table>
+
+                <!-- <p class="paragraph">
+                    Our controller, unsurprisingly, achieves pose goals faster
+                    in simulation than on hardware (see 49.31s simulation
+                    average compared to 109.20s hardware average in the above
+                    table).  This gap, common in the literature, can be partly
+                    explained by state estimate errors, incorrect models, and
+                    FoundationPose's added computational load.  We reiterate our
+                    approach is not optimal; it is a real-time CI-MPC approach
+                    that makes all its decisions on-the-fly.  While not optimal,
+                    our controller is demonstrably effective on these difficult
+                    tasks.
+                </p> -->
+            </div>
+
+            <br>
+
+            <!-- MJPC Comparison -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Comparison to MuJoCo MPC (MJPC)</h1>
+                <p class="paragraph">
+                    Due to the inability to escape geometric local minima, C3
+                    fails essentially 100% of the time on our tasks and thus is
+                    not compared.  We compare with
+                    <a href="https://arxiv.org/abs/2212.00541">MuJoCo MPC (MJPC)
+                    with predictive sampling</a> on the 3D jack task in
+                    simulation.
+                </p>
+
+                <div class="columns is-centered">
+                    <img id="smaller-img"
+                        src="./static/images/mjpc_cdf_concise.png" />
+                </div>
+                <div class="columns is-centered">
+                    <img id="smaller-img"
+                        src="./static/images/mjpc_hwv.png" />
+                </div>
+                <p class="paragraph">
+                    Our controller outperforms MJPC in simulation on our 3D jack
+                    example. Further, our controller satisfies Franka hardware
+                    limits (joint velocity/torque, workspace limits), while MJPC
+                    nearly always violates at least one.  Given this high
+                    hardware limit violation rate, we did not feel safe
+                    deploying MJPC on the real robot.  While impossible to
+                    compare against all possible MJPC weights, we put forth a
+                    best-faith effort in tuning and further investigated the
+                    role of end effector velocity cost weight, due to its role
+                    in the controller's speed.  Increasing this cost weight
+                    makes MJPC less performant, yet does not prevent hardware
+                    limit violations.
                 </p>
             </div>
 

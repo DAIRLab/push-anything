@@ -38,7 +38,6 @@ td:first-child, th:first-child {
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
     font-weight: bold;
-    text-align: left;
 }
 
 td:last-child, th:last-child {
@@ -47,8 +46,8 @@ td:last-child, th:last-child {
 }
 
 tr:last-child {
+    border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
-    font-weight: bold;
 }
 
 .mesh-scale-table > table > tbody > tr > td:first-child, td:last-child {
@@ -291,8 +290,18 @@ th {
     margin-bottom: 10px;
 }
 
-#geometry-img {
+#full-img {
     width: 100%;
+}
+
+#med-img {
+    width: 100%;
+    max-width: 700px;
+}
+
+#smaller-img {
+    width: 100%;
+    max-width: 600px;
 }
 
 #cf-img {
