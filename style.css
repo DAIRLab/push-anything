@@ -730,11 +730,11 @@ video {
     position: relative;
     align-items: center;
     font-size: 2rem;
-    top: -250px;
+    top: -200px;
     height: 4rem;
     background-color: #6dbdff;
     border: none;
-    width: 5%;
+    width: 30px;
     font-size: 2rem;
     padding: 0;
     cursor: pointer;
@@ -749,21 +749,19 @@ video {
 
 
 .carousel-button.left {
-    left: -400px;
+    left: max(-40vw, -400px);
     border-radius: 2rem 2rem 2rem 2rem;
-
 }
 
 .carousel-button.right {
-    right: -400px;
+    right: max(-40vw, -400px);
     border-radius: 2rem 2rem 2rem 2rem;
-
 } 
 
 .carousel-slider-wrapper {
     position: relative;
     max-width: 48rem;
-    margin: 0 auto;
+    margin: 0 80px;
 }
 
 .carousel-slider {
