@@ -1,31 +1,30 @@
 <html>
 <head>
-
     <meta charset="utf-8" />
-    <title>Approximating Global CI-MPC</title>
+    <title>Push Anything</title>
 
     <meta
-        content="We approximate global contact-implicit MPC by sampling global end effector locations, computing their local CI-MPC plans in parallel, and switching between contact-free and contact-rich modes."
+        content="With fast contact-implicit model predictive control, we demonstrate 'pushing anything' -- even multiple things -- with a robot arm in real time."
         name="description" />
     <meta
-        content="We inject global insights into local contact-implicit control."
+        content="Fast contact-implicit MPC can push anything."
         property="og:title" />
     <meta
-        content="We approximate global contact-implicit MPC by sampling global end effector locations, computing their local CI-MPC plans in parallel, and switching between contact-free and contact-rich modes."
+        content="With fast contact-implicit model predictive control, we demonstrate 'pushing anything' -- even multiple things -- with a robot arm in real time."
         name="description"
         property="og:description" />
     <meta
-        content="https://approximating-global-ci-mpc.github.io/static/images/meta.png"
+        content="https://push-anything.github.io/static/images/meta.png"
         property="og:image" />
     <meta
-        content="We inject global insights into local contact-implicit control."
+        content="Fast contact-implicit MPC can push anything."
         property="twitter:title" />
     <meta
-        content="We approximate global contact-implicit MPC by sampling global end effector locations, computing their local CI-MPC plans in parallel, and switching between contact-free and contact-rich modes."
+        content="With fast contact-implicit model predictive control, we demonstrate 'pushing anything' -- even multiple things -- with a robot arm in real time."
         name="description"
         property="twitter:description" />
     <meta
-        content="https://approximating-global-ci-mpc.github.io/static/images/meta.png"
+        content="https://push-anything.github.io/static/images/meta.png"
         property="twitter:image" />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
@@ -78,23 +77,33 @@
     <div class="section">
         <div class="container">
             <br>
-            <h1 class="title">Approximating Global Contact-Implicit MPC via
-                Sampling and Local Complementarity</h1>
-            <!-- <h1 class="subheader"> via Sampling and Local Complementarity</h1> -->
+            <h1 class="title">Push Anything: Single- and Multi-Object Pushing
+                From First Sight with Contact-Implicit MPC</h1>
 
             <div class="publication-authors" style="font-size:1.25rem;">
                 <span class="author-block">
-                    <a href="https://www.sharanyavenkatesh.com/"
-                        target="_blank">Sharanya Venkatesh</a><sup>*</sup>,</span>
+                    <a href="https://scholar.google.com/citations?user=xZolRYsAAAAJ&hl=en&oi=ao"
+                        target="_blank">Hien Bui</a><sup>*</sup>,</span>
+                <span class="author-block">
+                    <a href="https://www.linkedin.com/in/yufeiyanggao/"
+                        target="_blank">Yufeiyang Gao</a><sup>*</sup>,</span>
+                <span class="author-block">Haoran Yang<sup>*</sup>,</span>
+                <br>
+                <span class="author-block">
+                    <a href="https://www.linkedin.com/in/eric-cui-296565171/"
+                        target="_blank">Eric Cui</a>,</span>
+                <span class="author-block">
+                    <a href="https://www.linkedin.com/in/siddhant-mody/"
+                        target="_blank">Siddhant Mody</a>,</span>
+                <span class="author-block">
+                    <a href="https://brianacosta.me/"
+                        target="_blank">Brian Acosta</a>,</span>
+                <span class="author-block">
+                    <a href="https://www.linkedin.com/in/thomasstephenfelix/"
+                        target="_blank">Thomas Stephen Felix</a>,</span>
                 <span class="author-block">
                     <a href="http://www.bianchini-love.com/bibit"
-                        target="_blank">Bibit Bianchini</a><sup>*</sup>,</span>
-                <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=dGoS2OAAAAAJ&hl=en"
-                        target="_blank">Alp Aydinoglu</a>,</span>
-                <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=DHjSnjoAAAAJ&hl=en"
-                        target="_blank">William Yang</a>,</span>
+                        target="_blank">Bibit Bianchini</a>,</span>
                 <span class="author-block">
                     <a href="https://dair.seas.upenn.edu"
                         target="_blank">Michael Posa</a></span>
@@ -103,7 +112,7 @@
             <div class="publication-authors"
                 style="font-size:1.25rem; line-height:22px;">
                 <span class="author-block" style="display:block"><sup>*</sup>The
-                    first two authors contributed equally to this work.</span>
+                    first three authors contributed equally to this work.</span>
 
                 <span class="author-block" style="display:block">University of
                     Pennsylvania</span>
@@ -116,119 +125,125 @@
 
             <div class="link-labels base-row">
                 <div class="base-col icon-col">
-                    <a href="https://arxiv.org/abs/2505.13350" target="_blank"
-                        class="link-block">
+                    <!-- <a href="TBD archive link" target="_blank"
+                        class="link-block"> -->
                     <img
                         src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
                         alt="paper"
                         sizes="(max-width: 479px) 12vw, (max-width: 767px) 7vw, (max-width: 991px) 41.8515625px, 56.6953125px"
                         srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png 500w, https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png 672w"
                         class="icon-img" />
-                    </a>
+                    <!-- </a> -->
                 </div>
                 <div class="base-col icon-col">
-                    <a href="https://github.com/DAIRLab/dairlib/tree/sampling_based_c3_public/examples/sampling_c3#readme"
-                        target="_blank" class="link-block">
+                    <!-- <a href="TBD dairlib branch/examples/sampling_c3#readme"
+                        target="_blank" class="link-block"> -->
                     <img
                         src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
                         alt="code" class="icon-img github-img-icon" />
-                    </a>
+                    <!-- </a> -->
                 </div>
                 <div class="column-2 base-col icon-col">
-                    <a href="https://youtu.be/rv9n8Uyvoh0" target="_blank"
-                        class="link-block">
+                    <!-- <a href="TBD youtube link" target="_blank"
+                        class="link-block"> -->
                     <img src="./static/logos/youtube_1.svg"
                         alt="video" class="icon-img data-img-icon" />
-                    </a>
+                    <!-- </a> -->
                 </div>
             </div>
             <div class="link-labels base-row">
                 <div class="base-col icon-col">
-                    <strong class="link-labels-text">Paper</strong>
+                    <strong class="link-labels-text">Paper (coming soon)</strong>
                 </div>
                 <div class="base-col icon-col">
-                    <strong class="link-labels-text">Code</strong>
+                    <strong class="link-labels-text">Code (coming soon)</strong>
                 </div>
                 <div class="base-col icon-col">
-                    <strong class="link-labels-text">Video</strong>
+                    <strong class="link-labels-text">Video (coming soon)</strong>
                 </div>
             </div>
 
             <br>
             <br>
 
-            <!-- Main video -->
+            <!-- Teaser video -->
             <div class="base-row add-top-padding">
-                <h1 id="abstract">Overview Video</h1>
-                <video autobuffer controls muted autoplay loop
-                    style="border: 1px solid #000000; border-radius: 15px;">
+                <video autobuffer muted autoplay loop>
                     <source id="mp4"
-                        src="./static/images/WebsiteControls_small.mp4"
+                        src="./static/images/PushAnything_intro_small.mp4"
                         type="video/mp4">
                 </video>
             </div>
 
             <h1 class="tldr">
                 <b>TL;DR</b>:
-                We approximate global contact-implicit MPC (CI-MPC) by sampling
-                global end effector locations, computing their local CI-MPC
-                plans in parallel, and switching between contact-free and
-                contact-rich modes.
+                Our enhanced contact-implicit MPC (CI-MPC) algorithm, C3+,
+                enables contact-rich manipulation of single or multiple diverse
+                objects modeled with unprecedented numbers of contact pairs.
             </h1>
 
             <br>
+
+            <!-- Main video -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Overview Video</h1>
+                TODO
+                <!-- TODO:  add in video here -->
+                <!-- <video autobuffer controls muted autoplay loop
+                    style="border: 1px solid #000000; border-radius: 15px;">
+                    <source id="mp4"
+                        src="./static/images/WebsiteControls_small.mp4"
+                        type="video/mp4">
+                </video> -->
+            </div>
 
             <!-- Abstract -->
             <div class="base-row add-top-padding">
                 <h1 id="abstract">Abstract</h1>
                 <p class="paragraph">
-                    To achieve general-purpose dexterous manipulation, robots
-                    must rapidly devise and execute contact-rich behaviors.
-                    Existing model-based controllers are incapable of globally
-                    optimizing in real-time over the exponential number of
-                    possible contact sequences. Instead, recent progress in
-                    contact-implicit control has leveraged simpler models that,
-                    while still hybrid, make local approximations. However, the
-                    use of local models inherently limits the controller to only
-                    exploit nearby interactions, potentially requiring
-                    intervention to richly explore the space of possible
-                    contacts.  We present a novel approach which leverages the
-                    strengths of local complementarity-based control in
-                    combination with low-dimensional, but global, sampling of
-                    possible end-effector locations. Our key insight is to
-                    consider a contact-free stage preceding a contact-rich stage
-                    at every control loop. Our algorithm, in parallel, samples
-                    end effector locations to which the contact-free stage can
-                    move the robot, then considers the cost predicted by
-                    contact-rich MPC local to each sampled location. The result
-                    is a globally-informed, contact-implicit controller capable
-                    of real-time dexterous manipulation. We demonstrate our
-                    controller on precise, non-prehensile manipulation of
-                    non-convex objects using a Franka Panda arm.
+                    Non-prehensile manipulation of diverse objects remains a
+                    core challenge in robotics, driven by unknown physical
+                    properties and the complexity of contact-rich interactions.
+                    Recent advances in contact-implicit model predictive control
+                    (CI-MPC), with contact reasoning embedded within the
+                    trajectory optimization, have shown promise in tackling the
+                    task efficiently and robustly, yet demonstrations have been
+                    limited to narrowly-curated examples.  In this work, we
+                    showcase the broader capabilities of CI-MPC through precise
+                    planar pushing tasks over a wide range of object geometries,
+                    including multi-object domains.  These scenarios demand
+                    reasoning over numerous inter-object and object-environment
+                    contacts to strategically manipulate and de-clutter the
+                    environment, challenges that were intractable for prior
+                    CI-MPC methods.  To achieve this, we introduce Consensus
+                    Complementarity Control Plus (C3+), an enhanced CI-MPC
+                    algorithm integrated into a complete pipeline spanning
+                    object scanning, mesh reconstruction, and hardware
+                    execution.  Compared to <a
+                    href="https://arxiv.org/abs/2304.11259">its predecessor C3
+                    </a>, C3+ achieves
+                    substantially faster solve times, enabling real-time
+                    performance even in multi-object pushing tasks. On hardware,
+                    our system achieves overall 98\% success rate across 33
+                    objects, reaching pose goals within tight tolerances. The
+                    average time-to-goal is approximately 0.5, 1.6, 3.2, and
+                    5.3 minutes for 1-, 2-, 3-, and 4-object tasks,
+                    respectively.
                 </p>
             </div>
 
             <br>
 
-            <!-- Uncut jack videos -->
+            <!-- Uncut single object videos -->
             <div class="base-row add-top-padding">
-                <h1 id="abstract">Uncut SE(3) Manipulation Videos</h1>
-                <h2>Loose tolerances:  5cm, 0.4rad (22.9 degrees)</h2>
-                <div class="video-container">
-                    <h2>73 consecutive SE(3) goals</h2>
-                    <video autoplay controls muted loop playsinline
-                        height="100%">
-                        <source
-                            src="./static/images/01_14_25_log_29_10x-80mB.mp4"
-                            type="video/mp4">
-                    </video>
-                </div>
-
+                <h1 id="abstract">Uncut Single Object Manipulation Videos</h1>
                 <h2>Tight tolerances:  2cm, 0.1rad (5.7 degrees)</h2>
                 <nav>
                     <div class="carousel-slider-wrapper">
                         <div class = "carousel-slider">
 
+                            <!-- Duplicate this video container div to add more
+                             videos to the slider. -->
                             <div class="video-container">
                                 <h2>21 consecutive SE(3) goals</h2>
                                 <video autoplay controls muted loop playsinline
@@ -249,26 +264,6 @@
                                 </video>
                             </div>
 
-                            <div class="video-container">
-                                <h2>15 consecutive SE(3) goals</h2>
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_jack/01_29_25_log_32_10x-30mB.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
-                            <div class="video-container">
-                                <h2>15 consecutive SE(3) goals</h2>
-                                <video autoplay controls muted loop playsinline
-                                    height="100%">
-                                    <source
-                                        src="./static/images/carousel_jack/01_29_25_log_7_10x-20mB.mp4"
-                                        type="video/mp4">
-                                </video>
-                            </div>
-
                         </div>
                         <button class="carousel-button left" type="button">&lt;</button>
                         <button class="carousel-button right" type="button">&gt;</button>
@@ -285,9 +280,9 @@
 
             <br>
 
-            <!-- Uncut push-T videos -->
+            <!-- Uncut 2-object videos -->
             <div class="base-row add-top-padding">
-                <h1 id="abstract">Uncut SE(2) Manipulation Videos</h1>
+                <h1 id="abstract">Uncut Two-Object Manipulation Videos</h1>
                 <h2>Tight tolerances:  2cm, 0.1rad (5.7 degrees)</h2>
                 <nav>
                     <div class="carousel-slider-wrapper">
@@ -313,22 +308,46 @@
                                 </video>
                             </div>
 
+                        </div>
+                        <button class="carousel-button left" type="button">&lt;</button>
+                        <button class="carousel-button right" type="button">&gt;</button>
+                    </div>
+                </nav>
+
+                <p class="paragraph">
+                    For our planar push-T example, we aggregate time-to-goal
+                    statistics across 4 continuous experiments containing 56,
+                    20, 20, and 10 consecutive SE(2) goals.  The above uncut
+                    videos depict these full-length experiments.
+                </p>
+            </div>
+
+            <br>
+
+            <!-- Uncut 3-object videos -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">Uncut Three-Object Manipulation Videos</h1>
+                <h2>Tight tolerances:  2cm, 0.1rad (5.7 degrees)</h2>
+                <nav>
+                    <div class="carousel-slider-wrapper">
+                        <div class = "carousel-slider">
+
                             <div class="video-container">
-                                <h2>20 consecutive SE(2) goals</h2>
+                                <h2>56 consecutive SE(2) goals</h2>
                                 <video autoplay controls muted loop playsinline
                                     height="100%">
                                     <source
-                                        src="./static/images/carousel_t/03_19_25_log_16_5x_small.mp4"
+                                        src="./static/images/carousel_t/03_19_25_log_29_5x-60mB.mp4"
                                         type="video/mp4">
                                 </video>
                             </div>
 
                             <div class="video-container">
-                                <h2>10 consecutive SE(2) goals</h2>
+                                <h2>20 consecutive SE(2) goals</h2>
                                 <video autoplay controls muted loop playsinline
                                     height="100%">
                                     <source
-                                        src="./static/images/carousel_t/03_19_25_log_18_5x-10mB.mp4"
+                                        src="./static/images/carousel_t/03_19_25_log_24_5x-25mB.mp4"
                                         type="video/mp4">
                                 </video>
                             </div>
@@ -349,10 +368,98 @@
 
             <br>
 
-            <!-- Limitations of Local Models -->
+            <!-- Uncut 4-object videos -->
             <div class="base-row add-top-padding">
-                <h1 id="abstract">Limitations of Local Models</h1>
+                <h1 id="abstract">Uncut Four-Object Manipulation Videos</h1>
+                <h2>Tight tolerances:  2cm, 0.1rad (5.7 degrees)</h2>
+                <nav>
+                    <div class="carousel-slider-wrapper">
+                        <div class = "carousel-slider">
+
+                            <div class="video-container">
+                                <h2>56 consecutive SE(2) goals</h2>
+                                <video autoplay controls muted loop playsinline
+                                    height="100%">
+                                    <source
+                                        src="./static/images/carousel_t/03_19_25_log_29_5x-60mB.mp4"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+
+                            <div class="video-container">
+                                <h2>20 consecutive SE(2) goals</h2>
+                                <video autoplay controls muted loop playsinline
+                                    height="100%">
+                                    <source
+                                        src="./static/images/carousel_t/03_19_25_log_24_5x-25mB.mp4"
+                                        type="video/mp4">
+                                </video>
+                            </div>
+
+                        </div>
+                        <button class="carousel-button left" type="button">&lt;</button>
+                        <button class="carousel-button right" type="button">&gt;</button>
+                    </div>
+                </nav>
+
                 <p class="paragraph">
+                    For our planar push-T example, we aggregate time-to-goal
+                    statistics across 4 continuous experiments containing 56,
+                    20, 20, and 10 consecutive SE(2) goals.  The above uncut
+                    videos depict these full-length experiments.
+                </p>
+            </div>
+
+            <br>
+
+            <!-- System Diagram -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">System Diagram</h1>
+                <img id="full-img" src="./static/images/system_v5.png" />
+                <br>
+                <br>
+                <p class="paragraph">
+                    We present the <b>Push Anything</b> framework (above), a
+                    pipeline integrating object perception with a novel
+                    controller.  Our framework operates in two phases.  In the
+                    offline phase, we build an object library by scanning
+                    objects to generate meshes (via <a
+                    href="https://bundlesdf.github.io/">BundleSDF</a>) and
+                    URDFs, assuming same mass and inertia.  In the online phase,
+                    our controller uses robot and object state estimates (the
+                    latter using <a
+                    href="https://nvlabs.github.io/FoundationPose/">
+                    FoundationPose</a>) to compute end effector trajectories.
+                    Following the approach in <a
+                    href="https://dynamic-controlled-sliding.github.io/">Yang
+                    and Posa</a>, these trajectories are tracked by a low-level
+                    operational space controller (OSC).
+
+                    <br>
+                    <br>
+                    TODO update text.
+
+                    Our controller is implemented in C++ within the
+                    <a href="https://drake.mit.edu">Drake systems framework</a>.
+                    
+                    Our setup uses two computers:  a computer with
+                    a 13th generation Intel Core i9-13900KF with 32 threads (for
+                    our sampling-based CI-MPC) and an NVIDIA GeForce RTX 4090
+                    GPU (for FoundationPose), and an Intel i7-8700K processor
+                    (for our OSC and robot drivers) equipped with a real-time
+                    kernel for communicating with the Franka.  Inter-computer
+                    communication occurs over
+                    <a href="https://lcm-proj.github.io/lcm/">LCM</a>.
+                </p>
+            </div>
+
+            <br>
+
+            <!-- C3+ Algorithm -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">C3+ Algorithm</h1>
+                <p class="paragraph">
+                    TODO text to be replaced.
                     Many CI-MPC methods use local models to approximate the
                     dynamics in a real-time-capable manner.  One example is
                     <a href="https://arxiv.org/abs/2304.11259">Consensus
@@ -361,98 +468,42 @@
                     (LCS).  An LCS captures the hybrid aspect of contact-rich
                     dynamics but is fundamentally local.
                 </p>
-                <h2>LCS Views of Object Geometry</h2>
-                <img id="full-img" src="./static/images/lcs_samples.png" />
-                <br>
-                <br>
-                <p class="paragraph">
-                    Loosely speaking, the LCS approximates object geometry as a
-                    set of hyperplanes coincident with and tangent to their
-                    witness points with respect to other geometries of interest.
-                    In the above example, a spherical end effector approaches a
-                    spherical object on a flat surface.  The ground-object
-                    hyperplane is in red, while the robot-object hyperplane is
-                    in blue.  A local controller built on LCS dynamics like C3
-                    computes a contact-rich trajectory from a given initial
-                    configuration, which defines the LCS.  With different
-                    initial configurations, the LCS is defined by different
-                    hyperplanes, and thus yields different contact-rich
-                    trajectories with different associated MPC costs.  In the
-                    above example, four initial configurations of the end
-                    effector with respect to the object are shown.  The
-                    rightmost LCS approximation allows the robot to most
-                    effectively foresee progressing the object toward the goal,
-                    and thus it has the lowest MPC cost.
-                </p>
-                <img id="med-img" src="./static/images/jack_lcs_samples.png" />
-                <br>
-                <br>
-                <p class="paragraph">
-                    These LCS approimations are well-defined even for more
-                    complicated geometries, only requiring witness points
-                    between the object and other collision geometries.  Above,
-                    the object-robot hyperplanes for three different end
-                    effector locations are shown, with sample costs on the
-                    right.
-                </p>
             </div>
 
             <br>
 
-            <!-- Algorithm -->
+            <!-- Sampling Strategy -->
             <div class="base-row add-top-padding">
-                <h1 id="abstract">Our Algorithm:  Inject Global Insights into
-                    Local Contact-Implicit Control</h1>
-                <img id="full-img" src="./static/images/algorithm.png" />
-                <br>
-                <br>
+                <h1 id="abstract">Sampling Strategy: Applicable to Any Mesh</h1>
                 <p class="paragraph">
-                    In this work, we extend the capabilities of
-                    <a href="https://arxiv.org/abs/2304.11259">C3</a> by
-                    injecting global insights into the local problem.  While
-                    using an LCS model enables C3's real-time performance, its
-                    locality (described above) is problematic and motivates our
-                    approach.  The key is to split the problem into an initial
-                    contact-free mode and a subsequent contact-rich mode.  The
-                    contact-free mode explores globally, setting up the
-                    contact-rich mode in a region tractably handled by C3.  To
-                    approximate the new bilevel optimization problem in
-                    real-time, we sample low-dimensional end effector locations
-                    at the mode switch.  In closed-loop, our controller uses
-                    progress and cost metrics to autonomously switch between
-                    modes.
+                    We pre-process object meshes by storing body-frame face
+                    locations, areas, and normal vectors.  Given world-frame
+                    object pose estimates, we generate a candidate end effector
+                    location by first performing several random sampling steps
+                    in series:  1) select an object uniformly, 2) select a
+                    stored face of this object weighted by area, and 3) sample a
+                    point lying on this face.  This surface point is then
+                    projected a fixed distance along the face's outward normal
+                    vector then projected to a fixed world height (see below).
+                    We reject samples which, even after projection away from one
+                    face, are too close to any of the objects.  This can occur
+                    due to object non-convexity, the presence of multiple
+                    objects, or the selection of a face whose normal is too
+                    vertical.  We repeat this process until the desired number
+                    of end effector candidates is obtained.
                 </p>
-            </div>
-
-            <br>
-
-            <!-- Control Architecture -->
-            <div class="base-row add-top-padding">
-                <h1 id="abstract">Implementation</h1>
-                <img id="med-img" src="./static/images/architecture.png" />
+                <img id="full-img" src="./static/images/sampling_v2.png" />
                 <br>
                 <br>
                 <p class="paragraph">
-                    Our controller is implemented in C++ within the
-                    <a href="https://drake.mit.edu">Drake systems framework</a>.
-                    In parallel, we consider 3 end effector samples (including
-                    the current end effector location) at every control loop.
-                    We connect our controller to an operational space controller
-                    (OSC), which tracks task-space commands specified by our
-                    policy at 8-12 Hz, via joint-level control at 1 KHz.  We
-                    additionally integrate with Franka hardware and state
-                    estimators as in the control diagram above.  Object state
-                    estimation uses
-                    <a href="https://nvlabs.github.io/FoundationPose/">
-                    FoundationPose</a> running at 30Hz with a D455 RealSense
-                    RGBD camera.  Our setup uses two computers:  a computer with
-                    a 13th generation Intel Core i9-13900KF with 32 threads (for
-                    our sampling-based CI-MPC) and an NVIDIA GeForce RTX 4090
-                    GPU (for FoundationPose), and an Intel i7-8700K processor
-                    (for our OSC and robot drivers) equipped with a real-time
-                    kernel for communicating with the Franka.  Inter-computer
-                    communication occurs over
-                    <a href="https://lcm-proj.github.io/lcm/">LCM</a>.
+                    Above is a visualization of the sampling strategy for end
+                    effector locations. The gray plane indicates the ground, and
+                    the orange planes represent local tangent planes to the mesh
+                    surfaces.  Blue arrows project surface samples outwards from
+                    the mesh along the face normals, then purple arrows project
+                    those to a fixed height in the world, generating candidate
+                    samples (green dots). Samples located too close to object
+                    surfaces (e.g. red dot) are discarded.
                 </p>
             </div>
 
@@ -495,26 +546,20 @@
                     </tbody>
                 </table>
 
-                <!-- <p class="paragraph">
-                    Our controller, unsurprisingly, achieves pose goals faster
-                    in simulation than on hardware (see 49.31s simulation
-                    average compared to 109.20s hardware average in the above
-                    table).  This gap, common in the literature, can be partly
-                    explained by state estimate errors, incorrect models, and
-                    FoundationPose's added computational load.  We reiterate our
-                    approach is not optimal; it is a real-time CI-MPC approach
-                    that makes all its decisions on-the-fly.  While not optimal,
-                    our controller is demonstrably effective on these difficult
-                    tasks.
-                </p> -->
+                <p class="paragraph">
+                    TODO replace table and text.  Can include Table II and
+                    Figure 8 from manuscript.
+                </p>
             </div>
 
             <br>
 
-            <!-- MJPC Comparison -->
+            <!-- C3 Timing Comparison -->
             <div class="base-row add-top-padding">
-                <h1 id="abstract">Comparison to MuJoCo MPC (MJPC)</h1>
+                <h1 id="abstract">C3 Timing Comparison</h1>
                 <p class="paragraph">
+                    TODO content to be replaced.  Can include Table I from
+                    manuscript.
                     Due to the inability to escape geometric local minima, C3
                     fails essentially 100% of the time on our tasks and thus is
                     not compared.  We compare with
@@ -527,23 +572,8 @@
                     <img id="smaller-img"
                         src="./static/images/mjpc_cdf_concise.png" />
                 </div>
-                <div class="columns is-centered">
-                    <img id="smaller-img"
-                        src="./static/images/mjpc_hwv.png" />
-                </div>
                 <p class="paragraph">
-                    Our controller outperforms MJPC in simulation on our 3D jack
-                    example. Further, our controller satisfies Franka hardware
-                    limits (joint velocity/torque, workspace limits), while MJPC
-                    nearly always violates at least one.  Given this high
-                    hardware limit violation rate, we did not feel safe
-                    deploying MJPC on the real robot.  While impossible to
-                    compare against all possible MJPC weights, we put forth a
-                    best-faith effort in tuning and further investigated the
-                    role of end effector velocity cost weight, due to its role
-                    in the controller's speed.  Increasing this cost weight
-                    makes MJPC less performant, yet does not prevent hardware
-                    limit violations.
+                    More text.
                 </p>
             </div>
 
@@ -554,9 +584,25 @@
                 <h1 id="abstract">Acknowledgments</h1>
 
                 <p class="paragraph">
-                    This work was supported by a National Defense Science and
-                    Engineering Graduate (NDSEG) Fellowship, an NSF CAREER Award
-                    under Grant No. FRR-2238480, and the RAI Institute.
+                    TODO add more here if necessary.
+                    This work was supported by an NSF CAREER Award under Grant
+                    No. FRR-2238480 and the RAI Institute.
+                </p>
+            </div>
+
+            <br>
+
+            <!-- TEMPORARY -->
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">TEMPORARY:  Remove when done</h1>
+
+                <p class="paragraph">
+                    TODO list:
+                     [ ] Add in/change all "TODO" items
+                     [ ] Remove old assets when push anything assets are added:
+                         static/images/carousel_jack,
+                         static/images/carousel_t, mjpc_cdf_concise.png
+                     [ ] Replace old assets:  favicon.png, meta.png
                 </p>
             </div>
 
@@ -566,12 +612,11 @@
             <div class="citation add-top-padding">
                 <h1 id="abstract"> Citation </h1>
                 <p> If you find this work useful, please consider citing: (bibtex) </p>
-                <pre id="codecell0">@article{venkatesh2025approximating,
-&nbsp;title={Approximating Global Contact-Implicit MPC via Sampling and Local Complementarity},
-&nbsp;author={Sharanya Venkatesh* and Bibit Bianchini* and Alp Aydinoglu and William Yang and Michael Posa},
-&nbsp;year={2025},
-&nbsp;journal={arXiv preprint arXiv:2505.13350},
-&nbsp;website={https://approximating-global-ci-mpc.github.io/}
+                <pre id="codecell0">@article{bui2025push,
+&nbsp;title={Push Anything: Single- and Multi-Object Pushing From First Sight with Contact-Implicit MPC},
+&nbsp;author={Hien Bui* and Yufeiyang Gao* and Haoran Yang* and Eric Cui and Siddhant Mody and Brian Acosta and Thomas Stephen Felix and Bibit Bianchini and Michael Posa},
+&nbsp;year={2025}, <!-- &nbsp;journal={arXiv preprint arXiv:2505.13350}, TODO include this when possible-->
+&nbsp;website={https://push-anything.github.io/}
 }
 </pre>
             </div>
@@ -583,7 +628,9 @@
     		
     <p style="text-align:left;font-size:small;padding: 1%;">
         Source code for this page was taken from
-        <a href="https://vysics-vision-and-physics.github.io">Vysics's website</a>, which is based on <a href="https://scenecomplete.github.io">SceneComplete's website</a>.
+        <a href="https://approximating-global-ci-mpc.github.io/">Approximating
+        Global CI-MPC's website</a>, which is based on <a
+        href="https://scenecomplete.github.io">SceneComplete's website</a>.
     </p>
 
 
