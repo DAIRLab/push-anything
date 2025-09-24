@@ -1,2 +1,2 @@
-# approximating-global-ci-mpc.github.io
-Website for Approximating Global Contact-Implicit MPC via Sampling and Local Complementarity.
+# push-anything.github.io
+Website for Push Anything: Single- and multi-object pushing from first sight with Contact-Implicit MPC.
