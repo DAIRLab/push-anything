@@ -48,7 +48,7 @@
 
     <link href="style.css" rel="stylesheet" type="text/css" />
 
-    <link href="./static/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -827,7 +827,7 @@
                 <p class="paragraph">
                     C3+ is an enhanced version of <a href="https://arxiv.org/abs/2304.11259">C3</a>, which leverages
                     the <a href="https://web.stanford.edu/class/ee364b/lectures/admm_slides.pdf">
-                        Alternating Direction Method of Multipliers (ADMM)</a> to solve a 
+                        Alternating Direction Method of Multipliers (ADMM)</a> to solve a
                     Quadratic Program with Complementarity Constraints (QPCC), where the system dynamics
                     are modeled as a <a href="https://epubs.siam.org/doi/10.1137/S0036139997325199">
                         Linear Complementarity System (LCS)</a>. C3 decouples the contact scheduling problem,
@@ -836,7 +836,7 @@
                     Mixed-Integer Quadratic Program (MIQP).
                     Building on this idea, our proposed C3+ algorithm introduces a new slack variable
                     that further decouples the contact problem across individual contacts.
-                    This reformulation makes it equivalent to solving multiple independent 
+                    This reformulation makes it equivalent to solving multiple independent
                     1D MIQPs, each has a simple closed-form solution, thereby transforming the costly,
                     coupled exponential-time MIQP into a constant-time analytical computation and
                     achieving a substantial overall speedup. More detailed derivations
