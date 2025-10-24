@@ -76,6 +76,21 @@ th {
     letter-spacing: 4;
 }
 
+.main-title {
+    font-size: 64px;
+    /* increase size (adjust as needed) */
+    font-weight: 700;
+    margin-top: 60px;
+}
+
+.sub-title {
+    font-size: 34px;
+    font-weight: 400;
+    margin-top: 20px;
+    color: #555;
+}
+
+
 .title-mobile {
     margin-top: 10px;
     margin-bottom: 0px;
