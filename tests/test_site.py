@@ -21,10 +21,18 @@ class PageTests(unittest.TestCase):
         cls.page = PageParser()
         cls.page.feed((ROOT / 'index.html').read_text())
 
-    def test_no_initial_video_downloads(self):
+    def test_opening_loop_and_deferred_other_videos(self):
         videos = [attrs for tag, attrs in self.page.tags if tag == 'video']
         self.assertEqual(len(videos), 4)
+        teaser = next(v for v in videos if v['id'] == 'teaser-video')
+        for flag in ['autoplay', 'loop', 'muted', 'playsinline']:
+            self.assertIn(flag, teaser)
+        self.assertNotIn('controls', teaser)
+        self.assertIn('src', teaser)
+        self.assertFalse(any(a.get('data-play') == 'teaser-video' for _, a in self.page.tags))
         for attrs in videos:
+            if attrs is teaser:
+                continue
             self.assertNotIn('src', attrs)
             self.assertNotIn('autoplay', attrs)
             self.assertEqual(attrs['preload'], 'none')

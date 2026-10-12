@@ -1,6 +1,8 @@
 'use strict';
 
-const videos = [...document.querySelectorAll('video')];
+const teaser = document.getElementById('teaser-video');
+const videos = [...document.querySelectorAll('video:not(#teaser-video)')];
+let teaserVisible = true;
 const status = document.getElementById('media-status');
 
 function playVideo(video) {
@@ -72,15 +74,32 @@ filters.forEach(filter => filter.addEventListener('click', () => {
   document.querySelector('.demo-list').scrollTop = 0;
 }));
 
-// Pause media when it leaves the viewport or the visitor switches tabs.
+function updateTeaserPlayback() {
+  if (teaserVisible && !document.hidden) {
+    // Some browsers block autoplay; retain the poster if playback is declined.
+    teaser.play().catch(() => {});
+  } else {
+    teaser.pause();
+  }
+}
+
+// The opening loop resumes on return; other videos remain click-to-play.
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (!entry.isIntersecting) entry.target.pause(); });
+    entries.forEach(entry => {
+      if (entry.target === teaser) {
+        teaserVisible = entry.isIntersecting;
+        updateTeaserPlayback();
+      } else if (!entry.isIntersecting) {
+        entry.target.pause();
+      }
+    });
   }, { threshold: 0.05 });
-  videos.forEach(video => observer.observe(video));
+  [teaser, ...videos].forEach(video => observer.observe(video));
 }
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) videos.forEach(video => video.pause());
+  updateTeaserPlayback();
 });
 
 document.getElementById('copy-citation').addEventListener('click', async () => {
