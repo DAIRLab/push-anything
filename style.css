@@ -260,6 +260,12 @@ p{
     font-size:13px;
     margin:6px 0 0
 }
+.affiliation-logo{
+    width:180px;
+    height:auto;
+    margin-top:18px;
+    mix-blend-mode:multiply
+}
 .author-section .publication-note{
     font-size:18px;
     line-height:1.5;
