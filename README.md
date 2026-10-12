@@ -7,8 +7,8 @@ The site is static HTML, CSS, and JavaScript. GitHub Pages serves it directly; n
 ## Media loading
 
 - The opening and credits videos autoplay silently in loops without controls. They pause offscreen or in background tabs, and resume when visible again. The credits video source loads only when its section comes into view.
-- Overview and experiment videos have no `src` until a visitor presses play or selects an experiment.
-- A shared experiment player exposes all 61 original demo choices, filtered by object count.
+- Overview and experiment videos have no `src` until a visitor presses play. Selecting a single-object grid thumbnail also starts its clip.
+- A shared experiment player exposes all 61 original demo choices, filtered by object count. Two-, three-, and four-object experiments use object-combination chips with recording counts. Previous/next arrows browse recordings within a combination; the counter shows the current video. Choosing a combination resets to its first recording. Browsing combinations or recordings updates the poster without requesting a video.
 - The original five-by-five object grid and 24 rotating GIF previews are preserved. Push-T uses a still frame from its hardware video. Small WebP stills appear first; animated GIFs are requested only when their choices approach the viewport. Visitors who prefer reduced motion keep the still previews. Other previews and figures load lazily.
 - Changing object categories cancels the current experiment request without downloading another clip. Only one user-selected video plays at a time, and offscreen/background videos pause.
 - Intro and overview MP4s have their metadata moved to the front for faster startup, with no re-encoding or quality loss.

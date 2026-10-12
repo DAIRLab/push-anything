@@ -64,14 +64,77 @@ function selectExperiment(choice, autoplay) {
   if (autoplay) playVideo(player);
 }
 
+const combinationPanel = document.getElementById('combination-panel');
+const combinationList = document.getElementById('combination-list');
+const recordingControls = document.getElementById('recording-controls');
+const recordingCounter = document.getElementById('recording-counter');
+const previousRecording = document.getElementById('previous-recording');
+const nextRecording = document.getElementById('next-recording');
+let activeRecordings = [];
+let recordingIndex = 0;
+
+function selectRecording(index) {
+  if (index < 0 || index >= activeRecordings.length) return;
+  recordingIndex = index;
+  selectExperiment(activeRecordings[index], false);
+  recordingCounter.textContent = `Video ${index + 1} of ${activeRecordings.length}`;
+  previousRecording.disabled = index === 0;
+  nextRecording.disabled = index === activeRecordings.length - 1;
+}
+
+function showCombinations(group) {
+  combinationList.replaceChildren();
+  const combinations = new Map();
+  choices.filter(choice => choice.dataset.group === group).forEach(choice => {
+    const name = choice.querySelector('span').textContent;
+    if (!combinations.has(name)) combinations.set(name, []);
+    combinations.get(name).push(choice);
+  });
+  combinations.forEach((recordings, name) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'combination-choice';
+    button.dataset.combination = name;
+    button.setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-controls', 'experiment-video');
+    const label = document.createElement('span');
+    label.className = 'combination-name';
+    label.textContent = name;
+    const count = document.createElement('span');
+    count.className = 'combination-count';
+    count.textContent = recordings.length;
+    count.setAttribute('aria-label', `${recordings.length} ${recordings.length === 1 ? 'video' : 'videos'}`);
+    button.append(label, count);
+    button.addEventListener('click', () => {
+      combinationList.querySelectorAll('button').forEach(item => {
+        item.setAttribute('aria-pressed', String(item === button));
+      });
+      activeRecordings = recordings;
+      selectRecording(0);
+    });
+    combinationList.append(button);
+  });
+  combinationList.firstElementChild.click();
+}
+
+previousRecording.addEventListener('click', () => selectRecording(recordingIndex - 1));
+nextRecording.addEventListener('click', () => selectRecording(recordingIndex + 1));
+
 choices.forEach(choice => choice.addEventListener('click', () => selectExperiment(choice, true)));
 const filters = [...document.querySelectorAll('[data-filter]')];
 filters.forEach(filter => filter.addEventListener('click', () => {
   filters.forEach(item => item.setAttribute('aria-pressed', String(item === filter)));
   document.querySelector('.experiment-layout').dataset.group = filter.dataset.filter;
+  const singleObject = filter.dataset.filter === '1';
   choices.forEach(choice => { choice.hidden = choice.dataset.group !== filter.dataset.filter; });
-  selectExperiment(choices.find(choice => !choice.hidden), false);
-  document.querySelector('.demo-list').scrollTop = 0;
+  const demoList = document.querySelector('.demo-list');
+  demoList.hidden = !singleObject;
+  combinationPanel.hidden = singleObject;
+  recordingControls.hidden = singleObject;
+  if (singleObject) selectExperiment(choices.find(choice => !choice.hidden), false);
+  else showCombinations(filter.dataset.filter);
+  demoList.scrollTop = 0;
+  combinationList.scrollTop = 0;
 }));
 
 function updateLoopPlayback(video) {
