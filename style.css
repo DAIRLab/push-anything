@@ -261,6 +261,9 @@ p{
     margin:6px 0 0
 }
 .author-section .publication-note{
+    font-size:18px;
+    line-height:1.5;
+    margin-top:12px;
     font-weight:600;
     color:var(--accent)
 }
