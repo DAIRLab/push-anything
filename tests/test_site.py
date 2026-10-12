@@ -46,8 +46,8 @@ class PageTests(unittest.TestCase):
 
     def test_rotating_previews_are_deferred_and_accessible(self):
         previews = [attrs for tag, attrs in self.page.tags if 'data-animated-src' in attrs]
-        self.assertEqual(len(previews), 24)
-        self.assertEqual(len({p['data-animated-src'] for p in previews}), 24)
+        self.assertEqual(len(previews), 25)
+        self.assertEqual(len({p['data-animated-src'] for p in previews}), 25)
         for preview in previews:
             self.assertTrue(preview['data-animated-src'].endswith('.gif'))
             self.assertTrue(preview['src'].endswith('.webp'))
