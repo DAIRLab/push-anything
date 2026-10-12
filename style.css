@@ -266,10 +266,11 @@ p{
     margin-top:18px;
     mix-blend-mode:multiply
 }
-.author-section .publication-note{
-    font-size:18px;
+.publication-note{
+    max-width:430px;
+    font-size:16px;
     line-height:1.5;
-    margin-top:12px;
+    margin:0 0 22px;
     font-weight:600;
     color:var(--accent)
 }
