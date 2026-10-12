@@ -194,26 +194,6 @@ p{
 .secondary:hover{
     background:white
 }
-.visual-label,.visual-caption{
-    display:flex;
-    justify-content:space-between;
-    gap:16px;
-    font-size:10px;
-    letter-spacing:1px
-}
-.visual-label{
-    margin-bottom:13px;
-    color:var(--muted)
-}
-.visual-caption{
-    letter-spacing:0;
-    font-size:11px;
-    margin-top:14px;
-    color:var(--muted)
-}
-.visual-caption a{
-    color:var(--ink)
-}
 .media-shell{
     position:relative;
     background:#e3e2df;
@@ -915,12 +895,6 @@ footer .credits a{
     }
     .citation pre{
         font-size:10px
-    }
-    .visual-caption{
-        font-size:10px
-    }
-    .visual-label{
-        font-size:8px
     }
     .paragraph{
         font-size:14px
