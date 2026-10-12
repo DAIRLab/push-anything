@@ -320,14 +320,20 @@ sup{
     scroll-margin-top:30px
 }
 .section-heading{
-    max-width:700px;
+    max-width:820px;
     margin-bottom:34px
 }
 .section-heading .eyebrow{
-    margin-bottom:14px
+    margin-bottom:12px;
+    letter-spacing:2px
 }
-.section-heading h2{
-    margin-bottom:17px
+.section-heading h2,
+.citation-section h2{
+    font-size:clamp(34px,4.2vw,50px);
+    font-weight:650;
+    line-height:1.18;
+    letter-spacing:-1.2px;
+    margin-bottom:18px
 }
 .section-heading>p:last-child{
     max-width:620px;
@@ -535,9 +541,6 @@ details[open]>summary{
     line-height:1.7;
     margin:0
 }
-.methodology>.base-row>h2{
-    display:none
-}
 .base-row>img,.columns img{
     margin:25px 0 30px;
     border-radius:8px;
@@ -583,9 +586,6 @@ details[open]>summary{
     color:var(--muted);
     font-size:14px
 }
-#results>.base-row>h2{
-    display:none
-}
 #results>.base-row>h3{
     margin-top:30px
 }
@@ -623,9 +623,6 @@ tbody tr:nth-child(even){
     grid-template-columns:1fr 1.6fr;
     gap:45px;
     align-items:start
-}
-.citation-section h2{
-    font-size:37px
 }
 .citation-section>div>p{
     font-size:16px
