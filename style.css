@@ -92,7 +92,7 @@ p{
     gap:25px
 }
 .wordmark{
-    font-size:15px;
+    font-size:16px;
     font-weight:800;
     letter-spacing:1px;
     white-space:nowrap
@@ -109,10 +109,10 @@ p{
 .site-header nav{
     display:flex;
     gap:27px;
-    font-size:13px
+    font-size:15px
 }
 .lab-link{
-    font-size:13px;
+    font-size:15px;
     font-weight:600
 }
 .hero{
@@ -123,7 +123,7 @@ p{
     align-items:center
 }
 .eyebrow{
-    font:600 10px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font:600 12px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     letter-spacing:1.7px;
     color:var(--accent);
     margin-bottom:20px
@@ -158,7 +158,7 @@ p{
     margin-bottom:20px
 }
 .hero-description{
-    font-size:14px;
+    font-size:16px;
     max-width:360px;
     line-height:1.7;
     margin-bottom:28px
@@ -176,7 +176,7 @@ p{
     border-radius:6px;
     padding:11px 19px;
     border:1px solid var(--ink);
-    font-size:13px;
+    font-size:15px;
     font-weight:600;
     line-height:1.5
 }
@@ -223,13 +223,13 @@ p{
     text-align:left
 }
 .play-overlay>span:last-child{
-    font-size:14px;
+    font-size:16px;
     font-weight:600;
     text-shadow:0 1px 4px #000
 }
 .play-overlay small{
     display:block;
-    font-size:11px;
+    font-size:13px;
     font-weight:400;
     color:#f3f3f3
 }
@@ -242,7 +242,7 @@ p{
     border-radius:50%;
     background:#ffffffed;
     color:var(--ink);
-    font-size:14px;
+    font-size:16px;
     padding-left:2px;
     box-shadow:0 2px 12px #0002
 }
@@ -254,7 +254,7 @@ p{
     border-top:1px solid var(--line);
     padding:26px 0 30px;
     max-width:100%;
-    font-size:13px
+    font-size:16px
 }
 .publication-authors{
     max-width:1040px;
@@ -272,7 +272,7 @@ p{
     text-underline-offset:4px
 }
 .author-section p{
-    font-size:11px;
+    font-size:13px;
     margin:6px 0 0
 }
 .author-section .publication-note{
@@ -309,7 +309,7 @@ sup{
     margin-left:3px
 }
 .metrics p{
-    font-size:12px;
+    font-size:14px;
     margin:8px 0 0
 }
 .content-section{
@@ -357,10 +357,10 @@ sup{
     font-size:29px
 }
 .overview-note p{
-    font-size:14px
+    font-size:16px
 }
 .text-link{
-    font-size:13px;
+    font-size:15px;
     font-weight:600;
     border-bottom:1px solid var(--line);
     padding-bottom:5px
@@ -370,7 +370,7 @@ details{
 }
 summary{
     cursor:pointer;
-    font-size:14px;
+    font-size:16px;
     font-weight:600;
     padding:16px 0;
     list-style:none;
@@ -395,7 +395,7 @@ details[open]>summary{
     margin-bottom:20px
 }
 .paragraph{
-    font-size:15px;
+    font-size:16px;
     line-height:1.85;
     text-align:left;
     max-width:100%
@@ -420,10 +420,10 @@ details[open]>summary{
     color:var(--muted);
     padding:10px 16px;
     border-radius:6px;
-    font-size:13px
+    font-size:15px
 }
 .experiment-filters span{
-    font-size:10px;
+    font-size:13px;
     margin-left:9px;
     opacity:.75
 }
@@ -456,10 +456,10 @@ details[open]>summary{
 }
 .experiment-caption a{
     white-space:nowrap;
-    font-size:12px
+    font-size:14px
 }
 .tolerance-note{
-    font-size:11px;
+    font-size:13px;
     margin:12px 0 0
 }
 .demo-list{
@@ -491,12 +491,12 @@ details[open]>summary{
 .demo-choice span{
     display:block;
     margin:9px 9px 3px;
-    font-size:11px;
+    font-size:13px;
     font-weight:600
 }
 .demo-choice small{
     display:block;
-    font-size:9px;
+    font-size:13px;
     color:var(--muted);
     margin:0 9px 9px
 }
@@ -508,7 +508,7 @@ details[open]>summary{
     border-color:var(--accent)
 }
 #media-status,#copy-status{
-    font-size:12px;
+    font-size:14px;
     margin:8px 0
 }
 .process-strip{
@@ -522,14 +522,14 @@ details[open]>summary{
     padding-top:16px
 }
 .process-strip span{
-    font-size:11px;
+    font-size:13px;
     color:var(--accent)
 }
 .process-strip h3{
     margin:10px 0
 }
 .process-strip p{
-    font-size:13px;
+    font-size:15px;
     line-height:1.7;
     margin:0
 }
@@ -574,12 +574,12 @@ details[open]>summary{
     grid-row:span 2
 }
 .result-highlights span{
-    font-size:15px;
+    font-size:16px;
     font-weight:600
 }
 .result-highlights small{
     color:var(--muted);
-    font-size:12px
+    font-size:14px
 }
 #results>.base-row>h2{
     display:none
@@ -597,7 +597,7 @@ table{
     border-collapse:collapse;
     width:100%;
     min-width:850px;
-    font-size:12px;
+    font-size:14px;
     background:white
 }
 td,th{
@@ -626,7 +626,7 @@ tbody tr:nth-child(even){
     font-size:37px
 }
 .citation-section>div>p{
-    font-size:14px
+    font-size:16px
 }
 .citation{
     background:var(--soft);
@@ -636,7 +636,7 @@ tbody tr:nth-child(even){
     overflow:auto
 }
 .citation pre{
-    font:11px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;
+    font:13px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;
     margin:0;
     color:var(--ink)
 }
@@ -649,7 +649,7 @@ tbody tr:nth-child(even){
     letter-spacing:-.4px
 }
 .acknowledgments p{
-    font-size:13px
+    font-size:15px
 }
 footer{
     border-top:1px solid var(--line);
@@ -661,12 +661,12 @@ footer{
     align-items:center
 }
 footer p{
-    font-size:11px;
+    font-size:13px;
     margin:0
 }
 footer .credits{
     flex-basis:100%;
-    font-size:10px
+    font-size:13px
 }
 footer .credits a{
     text-decoration:underline
@@ -695,7 +695,7 @@ footer .credits a{
         font-size:18px
     }
     .eyebrow{
-        font-size:9px;
+        font-size:13px;
         letter-spacing:1.2px
     }
     .hero-links .button{
@@ -734,7 +734,7 @@ footer .credits a{
         padding:20px 0 16px
     }
     .wordmark{
-        font-size:12px
+        font-size:14px
     }
     .brand-mark{
         font-size:18px;
@@ -742,7 +742,7 @@ footer .credits a{
     }
     .site-header nav{
         gap:16px;
-        font-size:11px;
+        font-size:13px;
         overflow:auto;
         max-width:100%
     }
@@ -752,7 +752,7 @@ footer .credits a{
         gap:32px
     }
     .hero h1{
-        font-size:82px;
+        font-size:clamp(60px,21vw,82px);
         margin:24px 0;
         letter-spacing:-4px
     }
@@ -799,7 +799,7 @@ footer .credits a{
         font-size:37px
     }
     .metrics p{
-        font-size:11px
+        font-size:13px
     }
     .content-section{
         padding:52px 0
@@ -808,7 +808,7 @@ footer .credits a{
         font-size:34px
     }
     .section-heading>p:last-child{
-        font-size:14px
+        font-size:16px
     }
     .overview-layout{
         grid-template-columns:1fr;
@@ -833,11 +833,11 @@ footer .credits a{
     }
     .experiment-filters button{
         padding:9px 11px;
-        font-size:11px
+        font-size:13px
     }
     .experiment-filters span{
         margin-left:4px;
-        font-size:9px
+        font-size:13px
     }
     .experiment-layout{
         grid-template-columns:1fr;
@@ -855,7 +855,7 @@ footer .credits a{
         font-size:16px
     }
     .experiment-caption a{
-        font-size:10px
+        font-size:13px
     }
     .process-strip{
         grid-template-columns:1fr 1fr;
@@ -881,10 +881,10 @@ footer .credits a{
         font-size:49px
     }
     .result-highlights span{
-        font-size:12px
+        font-size:14px
     }
     .result-highlights small{
-        font-size:10px
+        font-size:13px
     }
     .citation-section{
         grid-template-columns:1fr;
@@ -894,13 +894,13 @@ footer .credits a{
         padding:18px
     }
     .citation pre{
-        font-size:10px
+        font-size:13px
     }
     .paragraph{
-        font-size:14px
+        font-size:16px
     }
     summary{
-        font-size:13px
+        font-size:15px
     }
     .acknowledgments{
         padding:35px 0
@@ -918,10 +918,10 @@ footer .credits a{
         grid-template-columns:repeat(2,1fr)
     }
     .experiment-filters button{
-        font-size:12px
+        font-size:14px
     }
     .experiment-filters span{
-        font-size:10px;
+        font-size:13px;
         margin-left:9px
     }
 }
@@ -958,7 +958,7 @@ footer .credits a{
     content: 'Select an object to play its experiment.';
     grid-column: 1 / -1;
     color: var(--muted);
-    font-size: 11px;
+    font-size: 13px;
     text-align: center;
     margin-top: 8px;
 }
