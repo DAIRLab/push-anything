@@ -342,7 +342,7 @@ sup{
     max-width:320px
 }
 .notation{
-    font-family:Georgia,serif;
+    font-family:"Times New Roman",Times,serif;
     font-size:60px;
     line-height:1;
     color:var(--accent);
