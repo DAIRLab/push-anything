@@ -148,12 +148,6 @@ p{
     color:var(--ink);
     margin-bottom:20px
 }
-.hero-description{
-    font-size:16px;
-    max-width:360px;
-    line-height:1.7;
-    margin-bottom:28px
-}
 .hero-links{
     display:flex;
     flex-wrap:wrap;
@@ -757,9 +751,6 @@ footer .credits a{
     .paper-title{
         max-width:480px;
         font-size:20px
-    }
-    .hero-description{
-        max-width:450px
     }
     .hero-visual{
         max-width:none
