@@ -1,211 +1,200 @@
-var iframe_names = [
-  ['demo1'],
-  ['demo2'],
-  ['demo3'],
-  ['demo4'],
-  ['demo5'],
-  ['demo6'],
-  ['demo7']
-];
+'use strict';
 
-var iframe_names_geo = [
-  ['demo1'],
-  ['demo2'],
-  ['demo3'],
-  ['demo4'],
-  ['demo5'],
-  ['demo6'],
-  ['demo7']
-];
+const loops = [...document.querySelectorAll('video[autoplay]')];
+const videos = [...document.querySelectorAll('video:not([autoplay])')];
+const visibleLoops = new Set();
+const status = document.getElementById('media-status');
 
-var iframes = [];
-var curr_type = 0;
-var selected_option = 0;
-var current_iframe_idx = 0;
-
-const optionsSets = [
-  ['demo1'],
-  ['demo2'],
-  ['demo3'],
-  ['demo4'],
-  ['demo5'],
-  ['demo6'],
-  ['demo7']
-];
-
-$(function() {
-  thumbnails = [
-    document.getElementById('thumb-0'),
-    document.getElementById('thumb-1'),
-    document.getElementById('thumb-2'),
-    document.getElementById('thumb-3'),
-    document.getElementById('thumb-4'),
-    document.getElementById('thumb-5'),
-    document.getElementById('thumb-6'),
-  ];
-  for (var i = 0; i < thumbnails.length; i++) {
-    thumbnails[i].addEventListener('click', showIframe.bind(this, i, false));
-    thumbnails[i].addEventListener('click', updateOptions.bind(this));
-    thumbnails[i].addEventListener('click', selectOption.bind(this, optionsSets[i][0], 0));
+function playVideo(video) {
+  // Keep src absent until a user asks to play; preload alone does not prevent requests.
+  if (!video.getAttribute('src')) {
+    video.src = video.dataset.src;
+    video.load();
   }
-  
-  if (iframes.length == 0) {
-    load_iframes();
-  };
-});
-
-function load_iframes() {
-  var geo = [];
-  var sem = [];
-  for (var i = 0; i < iframe_names.length; i++) {
-    var geo_temp = [];
-    var sem_temp = [];
-    for (var j = 0; j < iframe_names[i].length; j++) {
-      sem_temp.push(document.getElementById(iframe_names[i][j])); 
-      geo_temp.push(document.getElementById(iframe_names_geo[i][j])); 
-    }
-    sem.push(sem_temp); 
-    geo.push(geo_temp); 
-  }
-  iframes.push(sem);
-  iframes.push(geo);
-}
-
-function showIframe(index, fade=false) {
-  thumbnails[index].classList.add("active-btn");
-  if (current_iframe_idx != index) {
-    thumbnails[current_iframe_idx].classList.remove("active-btn");
-  }
-  current_iframe_idx = index;
-  
-  // Hide all model-viewer elements
-  for (let type = 0; type < iframes.length; type++) {
-    for (let i = 0; i < iframes[type].length; i++) {
-      for (let j = 0; j < iframes[type][i].length; j++) {
-        if (iframes[type][i][j]) {
-          iframes[type][i][j].style.display = 'none';
-        }
-      }
-    }
-  }
-
-  // Show the selected model-viewer element
-  const selectedIframe = iframes[curr_type][index][selected_option];
-  if (selectedIframe) {
-    if (fade) {
-      // With transition
-      fadeIn(selectedIframe);
-    } else {
-      // Without transition
-      selectedIframe.style.display = 'block';
-    }
-  }
-}
-
-function fadeIn(element) {
-  element.style.display = 'block';
-  element.style.opacity = 0;
-  var op = 0;
-  var timer = setInterval(function () {
-    if (op >= 1) {
-      clearInterval(timer);
-    }
-    element.style.opacity = op;
-    op += 0.1;
-  }, 50);
-}
-
-function fullscreen() {
-  current_iframe = iframes[curr_type][current_iframe_idx][selected_option];
-  if (current_iframe.requestFullscreen) {
-    current_iframe.requestFullscreen();
-  } else if (current_iframe.webkitRequestFullscreen) {
-    current_iframe.webkitRequestFullscreen();
-  } else if (current_iframe.msRequestFullscreen) {
-    current_iframe.msRequestFullscreen();
-  }
-}
-
-function updateOptions() {
-  const optionsMenu = document.getElementById('options-menu');
-  optionsMenu.innerHTML = ''; // Clear previous options
-
-  // Add new options based on the activeSet
-  optionsSets[current_iframe_idx].forEach((option, index) => {
-    const li = document.createElement('li');
-    li.textContent = option;
-
-    // Use a closure to capture the current index value
-    li.onclick = (function (opt, idx) {
-      return function () {
-        selectOption(opt, idx); // Pass the option and index here
-      };
-    })(option, index);
-
-    optionsMenu.appendChild(li);
+  video.controls = true;
+  const overlay = document.querySelector(`[data-play="${video.id}"]`);
+  overlay.hidden = true;
+  status.textContent = '';
+  video.play().catch(() => {
+    // Native controls remain available if the browser declines programmatic playback.
+    if (!video.error) status.textContent = 'Use the video controls to start playback.';
   });
 }
 
-function selectOption(option, idx) {
-  const selectedOptionText = document.getElementById('selected-option');
-  selectedOptionText.textContent = option;
-  selected_option = idx;
-  showIframe(current_iframe_idx);
-}
+document.querySelectorAll('[data-play]').forEach(button => {
+  button.addEventListener('click', () => playVideo(document.getElementById(button.dataset.play)));
+});
 
-window.onload = function() {
-  const root = document.documentElement;
-  const checkbox = document.getElementById('opacity-toggle');
-  if (iframes.length == 0) {
-    load_iframes();
-  };
-  checkbox.addEventListener('change', (event) => {
-    if (event.currentTarget.checked) {
-      // Semantic
-      curr_type = 0;
-      showIframe(current_iframe_idx);
+videos.forEach(video => {
+  video.addEventListener('play', () => {
+    videos.forEach(other => { if (other !== video) other.pause(); });
+    document.querySelector(`[data-play="${video.id}"]`).hidden = true;
+  });
+  video.addEventListener('error', () => {
+    const overlay = document.querySelector(`[data-play="${video.id}"]`);
+    overlay.hidden = false;
+    video.controls = false;
+    if (video.id === 'experiment-video') {
+      status.textContent = 'This clip could not load. Try again or use “Open video” to watch it directly.';
     } else {
-      // Geometric
-      curr_type = 1;
-      showIframe(current_iframe_idx);
+      overlay.querySelector('span:last-child').textContent = 'Video could not load. Select to retry.';
     }
-  })
+    video.removeAttribute('src');
+  });
+});
 
-  showIframe(0);
-  updateOptions();
-  selectOption(optionsSets[current_iframe_idx][0], 0);
+const player = document.getElementById('experiment-video');
+const choices = [...document.querySelectorAll('.demo-choice')];
+
+function selectExperiment(choice, autoplay) {
+  player.pause();
+  player.controls = false;
+  // Cancel the previous request when switching experiments, including buffered clips.
+  player.removeAttribute('src');
+  player.load();
+  player.dataset.src = choice.dataset.src;
+  player.poster = choice.dataset.poster;
+  document.getElementById('experiment-title').textContent = choice.dataset.title;
+  document.getElementById('experiment-file').href = choice.dataset.src;
+  const group = Number(choice.dataset.group);
+  document.getElementById('experiment-category').textContent = `${group === 1 ? 'SINGLE OBJECT' : `${group} OBJECTS`} · ${group === 1 ? '1' : group === 2 ? '3' : '10'}× SPEED`;
+  choices.forEach(item => item.setAttribute('aria-pressed', String(item === choice)));
+  document.querySelector('[data-play="experiment-video"]').hidden = false;
+  status.textContent = '';
+  if (autoplay) playVideo(player);
 }
 
-function slide_left() {
-  var idx = current_iframe_idx;
-  if (idx - 1 < 0) {
-    idx = iframes[0].length - 1;
+const combinationPanel = document.getElementById('combination-panel');
+const combinationList = document.getElementById('combination-list');
+const recordingControls = document.getElementById('recording-controls');
+const recordingCounter = document.getElementById('recording-counter');
+const previousRecording = document.getElementById('previous-recording');
+const nextRecording = document.getElementById('next-recording');
+let activeRecordings = [];
+let recordingIndex = 0;
+
+function selectRecording(index) {
+  if (index < 0 || index >= activeRecordings.length) return;
+  recordingIndex = index;
+  selectExperiment(activeRecordings[index], false);
+  recordingCounter.textContent = `Video ${index + 1} of ${activeRecordings.length}`;
+  previousRecording.disabled = index === 0;
+  nextRecording.disabled = index === activeRecordings.length - 1;
+}
+
+function showCombinations(group) {
+  combinationList.replaceChildren();
+  const combinations = new Map();
+  choices.filter(choice => choice.dataset.group === group).forEach(choice => {
+    const name = choice.querySelector('span').textContent;
+    if (!combinations.has(name)) combinations.set(name, []);
+    combinations.get(name).push(choice);
+  });
+  combinations.forEach((recordings, name) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'combination-choice';
+    button.dataset.combination = name;
+    button.setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-controls', 'experiment-video');
+    const label = document.createElement('span');
+    label.className = 'combination-name';
+    label.textContent = name;
+    const count = document.createElement('span');
+    count.className = 'combination-count';
+    count.textContent = recordings.length;
+    count.setAttribute('aria-label', `${recordings.length} ${recordings.length === 1 ? 'video' : 'videos'}`);
+    button.append(label, count);
+    button.addEventListener('click', () => {
+      combinationList.querySelectorAll('button').forEach(item => {
+        item.setAttribute('aria-pressed', String(item === button));
+      });
+      activeRecordings = recordings;
+      selectRecording(0);
+    });
+    combinationList.append(button);
+  });
+  combinationList.firstElementChild.click();
+}
+
+previousRecording.addEventListener('click', () => selectRecording(recordingIndex - 1));
+nextRecording.addEventListener('click', () => selectRecording(recordingIndex + 1));
+
+choices.forEach(choice => choice.addEventListener('click', () => selectExperiment(choice, true)));
+const filters = [...document.querySelectorAll('[data-filter]')];
+filters.forEach(filter => filter.addEventListener('click', () => {
+  filters.forEach(item => item.setAttribute('aria-pressed', String(item === filter)));
+  document.querySelector('.experiment-layout').dataset.group = filter.dataset.filter;
+  const singleObject = filter.dataset.filter === '1';
+  choices.forEach(choice => { choice.hidden = choice.dataset.group !== filter.dataset.filter; });
+  const demoList = document.querySelector('.demo-list');
+  demoList.hidden = !singleObject;
+  combinationPanel.hidden = singleObject;
+  recordingControls.hidden = singleObject;
+  if (singleObject) selectExperiment(choices.find(choice => !choice.hidden), false);
+  else showCombinations(filter.dataset.filter);
+  demoList.scrollTop = 0;
+  combinationList.scrollTop = 0;
+}));
+
+function updateLoopPlayback(video) {
+  if (visibleLoops.has(video) && !document.hidden) {
+    if (!video.getAttribute('src')) {
+      video.src = video.dataset.src;
+      video.load();
+    }
+    // Some browsers block autoplay; retain the poster if playback is declined.
+    video.play().catch(() => {});
   } else {
-    idx = idx - 1;
+    video.pause();
   }
-  showIframe(idx);
-  updateOptions();
-  selectOption(optionsSets[current_iframe_idx][0], 0);
 }
 
-function slide_right() {
-  var idx = current_iframe_idx;
-  if (idx + 1 > iframes[0].length - 1) {
-    idx = 0;
-  } else {
-    idx = idx + 1;
-  }
-  showIframe(idx);
-  updateOptions();
-  selectOption(optionsSets[current_iframe_idx][0], 0);
+// Decorative loops resume on return; the credits source stays deferred until visible.
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.target.autoplay) {
+        if (entry.isIntersecting) visibleLoops.add(entry.target);
+        else visibleLoops.delete(entry.target);
+        updateLoopPlayback(entry.target);
+      } else if (!entry.isIntersecting) {
+        entry.target.pause();
+      }
+    });
+  }, { threshold: 0.05 });
+  [...loops, ...videos].forEach(video => observer.observe(video));
+} else {
+  loops.forEach(video => { visibleLoops.add(video); updateLoopPlayback(video); });
 }
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) videos.forEach(video => video.pause());
+  loops.forEach(updateLoopPlayback);
+});
 
-// Close the dropdown menu when clicking outside of it
-window.addEventListener('click', function(event) {
-  const optionsMenu = document.getElementById('options-menu');
-  const dropdownBtn = document.querySelector('.dropdown-btn');
-
-  if (!event.target.matches('.dropdown-btn') && !event.target.matches('.arrow')) {
-    optionsMenu.classList.remove('show');
+document.getElementById('copy-citation').addEventListener('click', async () => {
+  const copyStatus = document.getElementById('copy-status');
+  try {
+    await navigator.clipboard.writeText(document.querySelector('.citation pre').textContent.trim());
+    copyStatus.textContent = 'BibTeX copied.';
+  } catch {
+    copyStatus.textContent = 'Copy is unavailable in this browser. Select the BibTeX text and copy it manually.';
   }
 });
+
+// Keep the original rotating GIFs, but fetch them only as their choices approach the viewport.
+const animatedPreviews = [...document.querySelectorAll('[data-animated-src]')];
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if ('IntersectionObserver' in window) {
+    const previewObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.src = entry.target.dataset.animatedSrc;
+        previewObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '100px' });
+    animatedPreviews.forEach(image => previewObserver.observe(image));
+  } else {
+    animatedPreviews.forEach(image => { image.src = image.dataset.animatedSrc; });
+  }
+}
