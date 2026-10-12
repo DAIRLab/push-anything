@@ -21,20 +21,21 @@ class PageTests(unittest.TestCase):
         cls.page = PageParser()
         cls.page.feed((ROOT / 'index.html').read_text())
 
-    def test_opening_loop_and_deferred_other_videos(self):
+    def test_automatic_loops_and_deferred_other_videos(self):
         videos = [attrs for tag, attrs in self.page.tags if tag == 'video']
         self.assertEqual(len(videos), 4)
-        teaser = next(v for v in videos if v['id'] == 'teaser-video')
-        for flag in ['autoplay', 'loop', 'muted', 'playsinline']:
-            self.assertIn(flag, teaser)
-        self.assertNotIn('controls', teaser)
-        self.assertIn('src', teaser)
-        self.assertFalse(any(a.get('data-play') == 'teaser-video' for _, a in self.page.tags))
         for attrs in videos:
-            if attrs is teaser:
-                continue
+            if attrs['id'] in ['teaser-video', 'credits-video']:
+                for flag in ['autoplay', 'loop', 'muted', 'playsinline']:
+                    self.assertIn(flag, attrs)
+                self.assertNotIn('controls', attrs)
+                self.assertFalse(any(a.get('data-play') == attrs['id'] for _, a in self.page.tags))
+                if attrs['id'] == 'teaser-video':
+                    self.assertIn('src', attrs)
+                    continue
+            else:
+                self.assertNotIn('autoplay', attrs)
             self.assertNotIn('src', attrs)
-            self.assertNotIn('autoplay', attrs)
             self.assertEqual(attrs['preload'], 'none')
             self.assertIn('data-src', attrs)
 

@@ -1,8 +1,8 @@
 'use strict';
 
-const teaser = document.getElementById('teaser-video');
-const videos = [...document.querySelectorAll('video:not(#teaser-video)')];
-let teaserVisible = true;
+const loops = [...document.querySelectorAll('video[autoplay]')];
+const videos = [...document.querySelectorAll('video:not([autoplay])')];
+const visibleLoops = new Set();
 const status = document.getElementById('media-status');
 
 function playVideo(video) {
@@ -74,32 +74,39 @@ filters.forEach(filter => filter.addEventListener('click', () => {
   document.querySelector('.demo-list').scrollTop = 0;
 }));
 
-function updateTeaserPlayback() {
-  if (teaserVisible && !document.hidden) {
+function updateLoopPlayback(video) {
+  if (visibleLoops.has(video) && !document.hidden) {
+    if (!video.getAttribute('src')) {
+      video.src = video.dataset.src;
+      video.load();
+    }
     // Some browsers block autoplay; retain the poster if playback is declined.
-    teaser.play().catch(() => {});
+    video.play().catch(() => {});
   } else {
-    teaser.pause();
+    video.pause();
   }
 }
 
-// The opening loop resumes on return; other videos remain click-to-play.
+// Decorative loops resume on return; the credits source stays deferred until visible.
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.target === teaser) {
-        teaserVisible = entry.isIntersecting;
-        updateTeaserPlayback();
+      if (entry.target.autoplay) {
+        if (entry.isIntersecting) visibleLoops.add(entry.target);
+        else visibleLoops.delete(entry.target);
+        updateLoopPlayback(entry.target);
       } else if (!entry.isIntersecting) {
         entry.target.pause();
       }
     });
   }, { threshold: 0.05 });
-  [teaser, ...videos].forEach(video => observer.observe(video));
+  [...loops, ...videos].forEach(video => observer.observe(video));
+} else {
+  loops.forEach(video => { visibleLoops.add(video); updateLoopPlayback(video); });
 }
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) videos.forEach(video => video.pause());
-  updateTeaserPlayback();
+  loops.forEach(updateLoopPlayback);
 });
 
 document.getElementById('copy-citation').addEventListener('click', async () => {
