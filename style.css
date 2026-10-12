@@ -993,3 +993,7 @@ footer .credits a{
         grid-template-columns: 1fr;
     }
 }
+
+.credits-section {
+    margin-top: 28px;
+}
