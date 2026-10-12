@@ -128,15 +128,6 @@ p{
     color:var(--accent);
     margin-bottom:20px
 }
-.status-dot{
-    display:inline-block;
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:var(--accent);
-    margin-right:7px;
-    vertical-align:middle
-}
 .hero h1{
     font-size:clamp(64px,7.5vw,108px);
     letter-spacing:-6px;
