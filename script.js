@@ -66,6 +66,7 @@ choices.forEach(choice => choice.addEventListener('click', () => selectExperimen
 const filters = [...document.querySelectorAll('[data-filter]')];
 filters.forEach(filter => filter.addEventListener('click', () => {
   filters.forEach(item => item.setAttribute('aria-pressed', String(item === filter)));
+  document.querySelector('.experiment-layout').dataset.group = filter.dataset.filter;
   choices.forEach(choice => { choice.hidden = choice.dataset.group !== filter.dataset.filter; });
   selectExperiment(choices.find(choice => !choice.hidden), false);
   document.querySelector('.demo-list').scrollTop = 0;
@@ -91,3 +92,20 @@ document.getElementById('copy-citation').addEventListener('click', async () => {
     copyStatus.textContent = 'Copy is unavailable in this browser. Select the BibTeX text and copy it manually.';
   }
 });
+
+// Keep the original rotating GIFs, but fetch them only as their choices approach the viewport.
+const animatedPreviews = [...document.querySelectorAll('[data-animated-src]')];
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if ('IntersectionObserver' in window) {
+    const previewObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.src = entry.target.dataset.animatedSrc;
+        previewObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '100px' });
+    animatedPreviews.forEach(image => previewObserver.observe(image));
+  } else {
+    animatedPreviews.forEach(image => { image.src = image.dataset.animatedSrc; });
+  }
+}

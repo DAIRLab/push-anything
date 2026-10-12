@@ -960,3 +960,36 @@ footer .credits a{
         transition:none!important
     }
 }
+
+/* The single-object library retains its original five-by-five object grid. */
+.experiment-layout[data-group="1"] {
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+.experiment-layout[data-group="1"] .demo-list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    max-height: none;
+    overflow: visible;
+    padding: 3px;
+}
+.demo-choice[data-group="1"] img {
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+.demo-choice[data-group="1"] span,
+.demo-choice[data-group="1"] small {
+    display: none;
+}
+.experiment-layout[data-group="1"] .demo-list::after {
+    content: 'Select an object to play its experiment.';
+    grid-column: 1 / -1;
+    color: var(--muted);
+    font-size: 11px;
+    text-align: center;
+    margin-top: 8px;
+}
+@media (max-width: 760px) {
+    .experiment-layout[data-group="1"] {
+        grid-template-columns: 1fr;
+    }
+}

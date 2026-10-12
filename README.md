@@ -8,7 +8,7 @@ The site is static HTML, CSS, and JavaScript. GitHub Pages serves it directly; n
 
 - Videos have no `src` until a visitor presses play or selects an experiment.
 - A shared experiment player exposes all 61 original demo choices, filtered by object count.
-- Small WebP previews replace animated GIF downloads. Below-the-fold previews and figures load lazily.
+- The original five-by-five object grid and rotating GIF previews are preserved. Small WebP stills appear first; animated GIFs are requested only when their choices approach the viewport. Visitors who prefer reduced motion keep the still previews. Other previews and figures load lazily.
 - Changing object categories cancels the current experiment request without downloading another clip. Only one video plays at a time, and offscreen/background videos pause.
 - Intro and overview MP4s have their metadata moved to the front for faster startup, with no re-encoding or quality loss.
 - System fonts and native browser controls avoid font, library, and icon CDN requests.
